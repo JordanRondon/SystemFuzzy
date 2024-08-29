@@ -54,6 +54,7 @@ variable_psicologica = [
 # El rango de valores posibles para cada antecedente es de 0 a 5, con un incremento de 1.
 antecedentes = {variable: ctrl.Antecedent(np.arange(0, 5), variable) for variable in variable_psicologica}
 
+
 # Definición de las variables difusas para cada variable de salida
 actividad_extracurricular = [
     'futbol',
