@@ -23,9 +23,54 @@ class CuestionarioApp:
         # Preguntas a mostrar en el cuestionario
         self.preguntas = obtener_preguntas()
         self.index_pregunta = 0
+        self.index_respuesta = 0
 
         # Alternativas marcadas por el usuario
+        self.diccionario_alternativas = {
+            "Desinteresado" : 1,
+            "Algo" : 2,
+            "Moderado" : 3,
+            "Mucho" : 4,
+            "Interesado" : 5 
+        }
+
+        self.variables_sistema_difuso = [
+            'deportes',
+            'artes',
+            'ciencia',
+            'tecnologia',
+            'creatividad',
+            'social',
+            'autoexpresion',
+            'competitividad',
+            'independencia',
+            'coordinacion',
+            'creatividad_habilidad',
+            'tecnologia_habilidad',
+            'resolucion_problemas',
+            'expresion_artistica',
+            'trabajo_equipo',
+            'debates',
+            'actividades_grupales',
+            'colaboracion',
+            'compartir_ideas',
+            'competir',
+            'aprendizaje',
+            'autoexpresion_valor',
+            'superar_limites',
+            'liberar_energia',
+            'desconectar',
+            'creatividad_relajacion',
+            'deportes_relajacion',
+            'mejorar_habilidades',
+            'desarrollo_liderazgo',
+            'equilibrio_salud',
+            'aprender_nueva_habilidad',
+            'crecimiento_personal'
+        ]
+        
         self.respuestas_usuario = []
+        self.diccionario_respuestas = {}
 
         # Canvas principal
         self.canvas = Canvas(
@@ -187,6 +232,7 @@ class CuestionarioApp:
         self.btn_enviar.place(x=420.0, y=595.0, width=156.0, height=38.0)
         self.btn_enviar.place_forget()
 
+
     def create_radiobutton(self, text, x_position):
         rb = ttk.Radiobutton(
             self.canvas,
@@ -198,31 +244,79 @@ class CuestionarioApp:
 
         return self.canvas.create_window(x_position, 468, window=rb, anchor="nw")
 
+
     def actualizar_pregunta(self):
         """Actualiza el texto de la pregunta, numero de pregunta y el contador."""
         self.canvas.itemconfig(self.texto_pregunta, text=self.preguntas[self.index_pregunta])
         self.canvas.itemconfig(self.contador_pregunta, text=f"{self.index_pregunta + 1:02}")
         self.canvas.itemconfig(self.numero_pregunta, text=f"{self.index_pregunta + 1:02}.")
 
+    def guardar_alternativa(self):
+        #clave_alternativa = self.alternativa_seleccionada.get()
+        #if clave_alternativa in self.diccionario_alternativas:
+        #    clave_variable_sistema = self.variables_sistema_difuso[self.index_pregunta]
+        #    self.respuestas_usuario[clave_variable_sistema] = self.diccionario_alternativas[clave_alternativa]
+        
+        #if self.respuestas_usuario:
+        #    self.respuestas_usuario[self.index_respuesta] = self.diccionario_alternativas[self.alternativa_seleccionada.get()]
+        #else:
+        #    self.respuestas_usuario.append(self.diccionario_alternativas[self.alternativa_seleccionada.get()])
+
+        #if len(self.respuestas_usuario)-1 > self.index_pregunta:
+        if len(self.respuestas_usuario) > self.index_respuesta:
+            self.respuestas_usuario[self.index_respuesta] = self.diccionario_alternativas[self.alternativa_seleccionada.get()]
+        else:
+            self.respuestas_usuario.append(self.diccionario_alternativas[self.alternativa_seleccionada.get()])
+
+
+    def alternativa_anterior(self):
+        #valor_alternativa = self.respuestas_usuario[self.variables_sistema_difuso[self.index_pregunta]]
+        #self.alternativa_seleccionada.set(list(self.diccionario_alternativas.keys())[list(self.diccionario_alternativas.values()).index(valor_alternativa)])
+        #self.respuestas_usuario[clave_variable_sistema] = self.diccionario_alternativas[clave_alternativa]
+        print(list(self.diccionario_alternativas.keys())[list(self.diccionario_alternativas.values()).index(self.respuestas_usuario[self.index_respuesta])])
+        self.alternativa_seleccionada.set(list(self.diccionario_alternativas.keys())[list(self.diccionario_alternativas.values()).index(self.respuestas_usuario[self.index_respuesta])])
+
     def siguiente_pregunta(self):
         """Muestra la siguiente pregunta si existe."""
-        if self.index_pregunta < len(self.preguntas) - 1:
+        if len(self.respuestas_usuario) > self.index_respuesta:
+            print(self.index_respuesta)
+            self.index_respuesta += 1
+            self.alternativa_seleccionada.set(list(self.diccionario_alternativas.keys())[list(self.diccionario_alternativas.values()).index(self.respuestas_usuario[self.index_respuesta])])
+
+        if self.index_pregunta < len(self.preguntas) - 1 and self.alternativa_seleccionada.get():
+            self.guardar_alternativa()
             self.index_pregunta += 1
+            self.index_respuesta += 1
             self.actualizar_pregunta()
+            print(f"Index aumento: {self.index_respuesta}")
+            print(self.respuestas_usuario)
+            self.alternativa_seleccionada.set(list(self.diccionario_alternativas.keys())[list(self.diccionario_alternativas.values()).index(self.respuestas_usuario[self.index_respuesta-1])])
+            print(f"ALTERNATIVA SELECCIONADA: {list(self.diccionario_alternativas.keys())[list(self.diccionario_alternativas.values()).index(self.respuestas_usuario[self.index_respuesta-1])]}")
+            #self.btn_siguiente.place(x=615.0, y=595.0, width=156.0, height=38.0)
+        print(len(self.respuestas_usuario), self.index_pregunta)
 
         if self.index_pregunta == len(self.preguntas) - 1:
+            self.btn_siguiente.place_forget()
             self.btn_enviar.place(x=420.0, y=595.0, width=156.0, height=38.0)
+        
+        self.alternativa_seleccionada.set("")
+        #print(self.respuestas_usuario)
 
-        print(self.alternativa_seleccionada)
 
     def anterior_pregunta(self):
         """Muestra la pregunta anterior si existe."""
+
         if self.index_pregunta > 0:
             self.index_pregunta -= 1
+            self.index_respuesta -= 1
             self.actualizar_pregunta()
-            
+            self.alternativa_anterior()
+            print(self.index_respuesta)
+            self.btn_siguiente.place(x=615.0, y=595.0, width=156.0, height=38.0)
+        
         if self.index_pregunta != len(self.preguntas) - 1:
             self.btn_enviar.place_forget()
+            #self.self.btn_siguiente.place(x=615.0, y=595.0, width=156.0, height=38.0)
 
 
     def ocultar_preguntas(self):
@@ -235,13 +329,12 @@ class CuestionarioApp:
         self.canvas.itemconfig(self.contenedor_imagen, state="hidden")
         self.canvas.itemconfig(self.texto_instrucciones, state="hidden")
 
+        #Alternativas
         self.canvas.itemconfig(self.contenedor_Desinteresado, state="hidden")
         self.canvas.itemconfig(self.contenedor_Algo, state="hidden")
         self.canvas.itemconfig(self.contenedor_Moderado, state="hidden")
         self.canvas.itemconfig(self.contenedor_Mucho, state="hidden")
         self.canvas.itemconfig(self.contenedor_Interesado, state="hidden")
-
-
         
         #self.canvas.itemconfig(self.alternativa_Desinteresado, state="hidden")
         #self.canvas.itemconfig(self.alternativa_Algo, state="hidden")
@@ -287,8 +380,11 @@ class CuestionarioApp:
             font=("Inter", 24 * -1, 'bold'),
             anchor="center"
         )
+
+        self.guardar_alternativa()
         
         print("Respuestas enviadas")
+        print(self.respuestas_usuario)
 
     
     def reiniciar_cuestionario(self):
@@ -301,6 +397,8 @@ class CuestionarioApp:
         self.canvas.itemconfig(self.respuesta_actividad, state="hidden")
         self.index_pregunta = 0
         self.actualizar_pregunta()
+        self.respuestas_usuario.clear()
+        print(self.respuestas_usuario)
 
 if __name__ == "__main__":
     window = Tk()
