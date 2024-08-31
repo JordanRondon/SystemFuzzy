@@ -5,48 +5,33 @@ import matplotlib.pyplot as plt
 
 ##### Definición de las variables difusas para cada pregunta del cuestionario #####
 variable_psicologica = [
-    # 1. Intereses Personales
-    'deportes',                 # 1.1. ¿Te gusta participar en actividades deportivas y físicas?
-    'artes',                    # 1.2. ¿Disfrutas de actividades artísticas como la música, la pintura, la danza, la fotografia o otras actividades creativas?
-    'ciencia',                  # 1.3. ¿Te apasiona resolver problemas matemáticos o científicos?
-    'tecnologia',               # 1.4. ¿Te atraen las actividades relacionadas con la tecnología y la innovación?
-    'creatividad',              # 1.5. ¿Te gusta participar en proyectos creativos como la escritura, la fotografía o actuar?
-    # 2. Personalidad
-    'social',                   # 2.1. ¿Prefieres estar rodeado de personas y participar en actividades?
-    #'liderazgo',                # 2.2. ¿Te sientes cómodo liderando grupos o actividades?
-    'autoexpresion',            # 2.3. ¿Prefieres actividades en las que puedas expresarte libremente, como el teatro o la música?
-    'competitividad',           # 2.4. ¿Te gusta competir y destacarte en lo que haces?
-    'independencia',            # 2.5. ¿Prefieres actividades que te permitan reflexionar y trabajar de manera independiente?
-    # 3. Habilidades y Capacidades
-    'coordinacion',             # 3.1. ¿Consideras que tienes buena coordinación y habilidades físicas para los deportes?
-    'creatividad_habilidad',    # 3.2. ¿Disfrutas de actividades que requieren creatividad e imaginación?
-    'tecnologia_habilidad',     # 3.3. ¿Te sientes cómodo utilizando herramientas tecnológicas y aprendiendo sobre nuevas tecnologías?
-    'resolucion_problemas',     # 3.4. ¿Te gusta resolver acertijos, problemas o realizar actividades que requieren concentración?
-    'expresion_artistica',      # 3.5. ¿Disfrutas de actividades que te permiten expresar tus emociones a través del arte o la música?
-    # 4. Preferencias de Socialización
-    'trabajo_equipo',           # 4.1. ¿Prefieres trabajar en equipo para lograr un objetivo común?
-    'debates',                  # 4.2. ¿Te sientes cómodo participando en discusiones o debates en grupo?
-    'actividades_grupales',     # 4.3. ¿Te gusta participar en actividades grupales como deportes o teatro?
-    'colaboracion',             # 4.4. ¿Prefieres actividades donde puedas colaborar con otros, en lugar de trabajar solo?
-    'compartir_ideas',          # 4.5. ¿Te sientes motivado cuando puedes compartir tus ideas y aprender de los demás?
-    # 5. Valores y Motivaciones
-    'competir',                 # 5.1. ¿Te motiva la idea de competir y ganar en juegos o deportes?
-    'aprendizaje',              # 5.2. ¿Te interesa aprender cosas nuevas y explorar diferentes áreas de conocimiento?
-    #'ayudar',                   # 5.3. ¿Te gusta ayudar a los demás y participar en proyectos comunitarios?
-    'autoexpresion_valor',      # 5.4. ¿Te motiva la autoexpresión y sientes que es importante compartir tus pensamientos y sentimientos?
-    'superar_limites',          # 5.5. ¿Prefieres actividades que te desafíen y te permitan superar tus límites?
-    # 6. Nivel de Estrés y Manejo de la Ansiedad
-    #'relajacion',               # 6.1. ¿Buscas actividades que te ayuden a relajarte y reducir el estrés?
-    'liberar_energia',          # 6.2. ¿Te sientes mejor cuando puedes liberar energía a través de actividades físicas intensas?
-    'desconectar',              # 6.3. ¿Prefieres actividades que te permitan desconectar y centrarte en el momento presente?
-    'creatividad_relajacion',   # 6.4. ¿Te ayudan las actividades creativas como la escritura o el arte o manejar el estrés?
-    'deportes_relajacion',      # 6.5. ¿Te sientes más relajado cuando practicas deportes o ejercicios físicos?
-    # 7. Objetivos Personales
-    'mejorar_habilidades',      # 7.1. ¿Te interesa mejorar tus habilidades físicas o atléticas?
-    'desarrollo_liderazgo',     # 7.2. ¿Estás buscando actividades que te ayuden a desarrollar habilidades de liderazgo o trabajo en equipo?
-    'equilibrio_salud',         # 7.3. ¿Te importa mantener un equilibrio entre tu salud física y mental a través de actividades?
-    'aprender_nueva_habilidad', # 7.4. ¿Tienes el objetivo de aprender una nueva habilidad o mejorar una que ya tienes?
-    'crecimiento_personal'      # 7.5. ¿Estás buscando actividades que te ayuden a crecer personalmente y alcanzar tus metas a largo plazo?
+    "resistencia",              #¿Te interesa participar en actividades que requieren mantener un esfuerzo físico durante largos periodos?                              
+    "velocidad",                #¿Te interesan las actividades donde la rapidez y la capacidad de reacción son clave para el éxito?                            
+    "fuerza",                   #¿Te interesan los deportes o actividades que implican el uso de potencia muscular y fuerza física?                           
+    "agilidad",                 #¿Te interesa participar en actividades que requieren moverse con rapidez y destreza?                             
+    "coordinacion_superior",    #¿Te interesa realizar actividades que requieren coordinación precisa de tus brazos y manos?                            
+    "coordinacion_inferior",    #¿Te interesa realizar actividades que requieren coordinación precisa de tus piernas y pies?                            
+    "flexibilidad",             #¿Te interesa participar en actividades que requieren una gran flexibilidad y elasticidad en tu cuerpo?                             
+    "determinacion_motivacion", #¿Te interesa participar en actividades que requieren alta determinación y motivación constante?                             
+    "resiliencia",              #¿Te interesan las actividades que ponen a prueba tu capacidad para sobreponerse a dificultades y seguir adelante?                              
+    "disciplina",               #¿Disfrutas de actividades que requieren un alto nivel de compromiso y disciplina personal?                           
+    "liderazgo",                #¿Te interesa participar en actividades que te permiten asumir roles de liderazgo y guiar a otros?                            
+    "responsabilidad",          #¿Te atraen actividades que implican asumir riesgos, responsabilidades y cumplir compromisos?                              
+    "solucion_problemas",       #¿Te interesa involucrarte en actividades que requieren resolver problemas complejos y encontrar soluciones creativas?                           
+    "autocontrol",              #¿Te interesan las actividades que te obligan a controlar tus emociones y mantener la calma en situaciones difíciles?                              
+    "equilibrio_fisica_mental", #¿Te gustan las actividades que promueven un estilo de vida saludable tanto física como mentalmente?                             
+    "paciencia",                #¿Te interesan las actividades que requieren esperar y trabajar con calma para ver resultados?                            
+    "memorizacion",             #¿Te gusta aprender y recordar cosas nuevas, como letras de canciones, pasos de baile, o datos importantes?                             
+    "perfeccionismo",           #¿Te gusta hacer las cosas lo mejor posible, incluso si eso significa dedicarles más tiempo?                           
+    "perseverancia",            #¿Te interesan las actividades que requieran seguir adelante a pesar de los obstáculos para alcanzar tus metas?                            
+    "concentracion",            #¿Te gusta hacer actividades donde necesitas estar muy concentrado y enfocado para hacerlo bien?                            
+    "autoexpresion",            #¿Te interesan las actividades que te permiten expresar tus emociones y pensamientos?                            
+    "trabajo_equipo",           #¿Disfrutas de actividades donde es importante trabajar en equipo y colaborar con otros?                           
+    "comunicacion",             #¿Te interesa compartir tus ideas y escuchar a los demás en actividades de grupo?                             
+    "cooperacion",              #¿Te gusta ayudar y trabajar bien con otros para completar tareas o proyectos?                           
+    "trabajo_individual",       #¿Te sientes más cómodo realizando actividades en las que dependen principalmente de tus propias habilidades y esfuerzos?                         
+    "deporte_contacto",         #¿Te sientes cómodo participando en actividades que implican contacto físico con otros?                      
+    "deporte_estrategia"        #¿Te interesan las actividades donde la planificación y la estrategia juegan un papel clave en el éxito?                           
 ]
 
 # Creación de antecedentes para el sistema difuso.
@@ -57,21 +42,16 @@ antecedentes = {variable: ctrl.Antecedent(np.arange(0, 5), variable) for variabl
 
 # Definición de las variables difusas para cada variable de salida
 actividad_extracurricular = [
-    'futbol',
-    'voley',
-    'baloncesto',
-    'natacion',
-    'artes_marciales',
-    'ciclismo',
-    'teatro',
-    'musica',
-    'danza',
-    'fotografia',
-    'debate',
-    'ciencia_tecnologia',
-    'ajedrez',
-    #'cine_artes_escenicas',
-    'cocina_gastronomia',
+    'futbol',			
+    'voley',			
+    'baloncesto',			
+    'natacion',			
+    'artes_marciales',			
+    'ciclismo',			
+    'ajedrez',			
+    'musica',			
+    'danza',			
+    'teatro',			
     'escritura_creativa'
 ]
 
@@ -117,617 +97,477 @@ for consecuencia in consecuencias.values():
 
 # Definimos las reglas difusas
 reglas = [
-    ############# FUTBOL ############
+    ############# Futbol ############
     ctrl.Rule(
-        (antecedentes['deportes']['interesado'] | antecedentes['deportes']['mucho']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho']) &
-        (antecedentes['coordinacion']['interesado'] | antecedentes['coordinacion']['mucho']) &
-        (antecedentes['trabajo_equipo']['interesado'] | antecedentes['trabajo_equipo']['mucho']) &
-        (antecedentes['actividades_grupales']['interesado'] | antecedentes['actividades_grupales']['mucho']) &
-        (antecedentes['colaboracion']['interesado'] | antecedentes['colaboracion']['mucho']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho']) &
-        (antecedentes['superar_limites']['interesado'] | antecedentes['superar_limites']['mucho']) &
-        (antecedentes['mejorar_habilidades']['interesado'] | antecedentes['mejorar_habilidades']['mucho']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho']),
+        (antecedentes['resistencia']['interesado']              | antecedentes['resistencia']['mucho']) &
+        (antecedentes['velocidad']['interesado']                | antecedentes['velocidad']['mucho']) &
+        (antecedentes['fuerza']['interesado']                   | antecedentes['fuerza']['mucho']) &
+        (antecedentes['agilidad']['interesado']                 | antecedentes['agilidad']['mucho']) &
+        (antecedentes['coordinacion_inferior']['interesado']    | antecedentes['coordinacion_inferior']['mucho']) &
+        (antecedentes['determinacion_motivacion']['interesado'] | antecedentes['determinacion_motivacion']['mucho']) &
+        (antecedentes['resiliencia']['interesado']              | antecedentes['resiliencia']['mucho']) &
+        (antecedentes['disciplina']['interesado']               | antecedentes['disciplina']['mucho']) &
+        (antecedentes['liderazgo']['interesado']                | antecedentes['liderazgo']['mucho']) &
+        (antecedentes['responsabilidad']['interesado']          | antecedentes['responsabilidad']['mucho']) &
+        (antecedentes['solucion_problemas']['interesado']       | antecedentes['solucion_problemas']['mucho']) &
+        (antecedentes['trabajo_equipo']['interesado']           | antecedentes['trabajo_equipo']['mucho']) &
+        (antecedentes['comunicacion']['interesado']             | antecedentes['comunicacion']['mucho']) &
+        (antecedentes['cooperacion']['interesado']              | antecedentes['cooperacion']['mucho']) &
+        (antecedentes['deporte_contacto']['interesado']         | antecedentes['deporte_contacto']['mucho']),
         consecuencias['futbol']['alto']
     ),
-    
     ctrl.Rule(
-        (antecedentes['deportes']['interesado'] | antecedentes['deportes']['mucho'] | antecedentes['deportes']['moderado'] | antecedentes['deportes']['algo']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho'] | antecedentes['social']['moderado'] | antecedentes['social']['algo']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho'] | antecedentes['competitividad']['moderado'] | antecedentes['competitividad']['algo']) &
-        (antecedentes['coordinacion']['interesado'] | antecedentes['coordinacion']['mucho'] | antecedentes['coordinacion']['moderado'] | antecedentes['coordinacion']['algo']) &
-        (antecedentes['trabajo_equipo']['interesado'] | antecedentes['trabajo_equipo']['mucho'] | antecedentes['trabajo_equipo']['moderado'] | antecedentes['trabajo_equipo']['algo']) &
-        (antecedentes['actividades_grupales']['interesado'] | antecedentes['actividades_grupales']['mucho'] | antecedentes['actividades_grupales']['moderado'] | antecedentes['actividades_grupales']['algo']) &
-        (antecedentes['colaboracion']['interesado'] | antecedentes['colaboracion']['mucho'] | antecedentes['colaboracion']['moderado'] | antecedentes['colaboracion']['algo']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho'] | antecedentes['competir']['moderado'] | antecedentes['competir']['algo']) &
-        (antecedentes['superar_limites']['interesado'] | antecedentes['superar_limites']['mucho'] | antecedentes['superar_limites']['moderado'] | antecedentes['superar_limites']['algo']) &
-        (antecedentes['mejorar_habilidades']['interesado'] | antecedentes['mejorar_habilidades']['mucho'] | antecedentes['mejorar_habilidades']['moderado'] | antecedentes['mejorar_habilidades']['algo']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho'] | antecedentes['aprender_nueva_habilidad']['moderado'] | antecedentes['aprender_nueva_habilidad']['algo']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho'] | antecedentes['crecimiento_personal']['moderado'] | antecedentes['crecimiento_personal']['algo']),
+        (antecedentes['resistencia']['moderado']              | antecedentes['resistencia']['algo']) &
+        (antecedentes['velocidad']['moderado']                | antecedentes['velocidad']['algo']) &
+        (antecedentes['fuerza']['moderado']                   | antecedentes['fuerza']['algo']) &
+        (antecedentes['agilidad']['moderado']                 | antecedentes['agilidad']['algo']) &
+        (antecedentes['coordinacion_inferior']['moderado']    | antecedentes['coordinacion_inferior']['algo']) &
+        (antecedentes['determinacion_motivacion']['moderado'] | antecedentes['determinacion_motivacion']['algo']) &
+        (antecedentes['resiliencia']['moderado']              | antecedentes['resiliencia']['algo']) &
+        (antecedentes['disciplina']['moderado']               | antecedentes['disciplina']['algo']) &
+        (antecedentes['liderazgo']['moderado']                | antecedentes['liderazgo']['algo']) &
+        (antecedentes['responsabilidad']['moderado']          | antecedentes['responsabilidad']['algo']) &
+        (antecedentes['solucion_problemas']['moderado']       | antecedentes['solucion_problemas']['algo']) &
+        (antecedentes['trabajo_equipo']['moderado']           | antecedentes['trabajo_equipo']['algo']) &
+        (antecedentes['comunicacion']['moderado']             | antecedentes['comunicacion']['algo']) &
+        (antecedentes['cooperacion']['moderado']              | antecedentes['cooperacion']['algo']) &
+        (antecedentes['deporte_contacto']['moderado']         | antecedentes['deporte_contacto']['algo']),
         consecuencias['futbol']['medio']
     ),
-
     ctrl.Rule(
-        (antecedentes['deportes']['algo'] | antecedentes['deportes']['desinteresado']) &
-        (antecedentes['social']['algo'] | antecedentes['social']['desinteresado']) &
-        (antecedentes['competitividad']['algo'] | antecedentes['competitividad']['desinteresado']) &
-        (antecedentes['coordinacion']['algo'] | antecedentes['coordinacion']['desinteresado']) &
-        (antecedentes['trabajo_equipo']['algo'] | antecedentes['trabajo_equipo']['desinteresado']) &
-        (antecedentes['actividades_grupales']['algo'] | antecedentes['actividades_grupales']['desinteresado']) &
-        (antecedentes['colaboracion']['algo'] | antecedentes['colaboracion']['desinteresado']) &
-        (antecedentes['competir']['algo'] | antecedentes['competir']['desinteresado']) &
-        (antecedentes['superar_limites']['algo'] | antecedentes['superar_limites']['desinteresado']) &
-        (antecedentes['mejorar_habilidades']['algo'] | antecedentes['mejorar_habilidades']['desinteresado']) &
-        (antecedentes['aprender_nueva_habilidad']['algo'] | antecedentes['aprender_nueva_habilidad']['desinteresado']) &
-        (antecedentes['crecimiento_personal']['algo'] | antecedentes['crecimiento_personal']['desinteresado']),
+        (antecedentes['resistencia']['algo']              | antecedentes['resistencia']['desinteresado']) &
+        (antecedentes['velocidad']['algo']                | antecedentes['velocidad']['desinteresado']) &
+        (antecedentes['fuerza']['algo']                   | antecedentes['fuerza']['desinteresado']) &
+        (antecedentes['agilidad']['algo']                 | antecedentes['agilidad']['desinteresado']) &
+        (antecedentes['coordinacion_inferior']['algo']    | antecedentes['coordinacion_inferior']['desinteresado']) &
+        (antecedentes['determinacion_motivacion']['algo'] | antecedentes['determinacion_motivacion']['desinteresado']) &
+        (antecedentes['resiliencia']['algo']              | antecedentes['resiliencia']['desinteresado']) &
+        (antecedentes['disciplina']['algo']               | antecedentes['disciplina']['desinteresado']) &
+        (antecedentes['liderazgo']['algo']                | antecedentes['liderazgo']['desinteresado']) &
+        (antecedentes['responsabilidad']['algo']          | antecedentes['responsabilidad']['desinteresado']) &
+        (antecedentes['solucion_problemas']['algo']       | antecedentes['solucion_problemas']['desinteresado']) &
+        (antecedentes['trabajo_equipo']['algo']           | antecedentes['trabajo_equipo']['desinteresado']) &
+        (antecedentes['comunicacion']['algo']             | antecedentes['comunicacion']['desinteresado']) &
+        (antecedentes['cooperacion']['algo']              | antecedentes['cooperacion']['desinteresado']) &
+        (antecedentes['deporte_contacto']['algo']         | antecedentes['deporte_contacto']['desinteresado']),
         consecuencias['futbol']['bajo']
     ),
-
-    ############# VOLEY ############
+    ############# Voley ############
     ctrl.Rule(
-        (antecedentes['deportes']['interesado'] | antecedentes['deportes']['mucho']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho']) &
-        (antecedentes['coordinacion']['interesado'] | antecedentes['coordinacion']['mucho']) &
-        (antecedentes['trabajo_equipo']['interesado'] | antecedentes['trabajo_equipo']['mucho']) &
-        (antecedentes['actividades_grupales']['interesado'] | antecedentes['actividades_grupales']['mucho']) &
-        (antecedentes['colaboracion']['interesado'] | antecedentes['colaboracion']['mucho']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho']) &
-        (antecedentes['superar_limites']['interesado'] | antecedentes['superar_limites']['mucho']) &
-        (antecedentes['mejorar_habilidades']['interesado'] | antecedentes['mejorar_habilidades']['mucho']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho']),
+        (antecedentes['resistencia']['interesado']              | antecedentes['resistencia']['mucho']) &
+        (antecedentes['velocidad']['interesado']                | antecedentes['velocidad']['mucho']) &
+        (antecedentes['fuerza']['interesado']                   | antecedentes['fuerza']['mucho']) &
+        (antecedentes['agilidad']['interesado']                 | antecedentes['agilidad']['mucho']) &
+        (antecedentes['coordinacion_superior']['interesado']    | antecedentes['coordinacion_superior']['mucho']) &
+        (antecedentes['determinacion_motivacion']['interesado'] | antecedentes['determinacion_motivacion']['mucho']) &
+        (antecedentes['resiliencia']['interesado']              | antecedentes['resiliencia']['mucho']) &
+        (antecedentes['disciplina']['interesado']               | antecedentes['disciplina']['mucho']) &
+        (antecedentes['liderazgo']['interesado']                | antecedentes['liderazgo']['mucho']) &
+        (antecedentes['responsabilidad']['interesado']          | antecedentes['responsabilidad']['mucho']) &
+        (antecedentes['solucion_problemas']['interesado']       | antecedentes['solucion_problemas']['mucho']) &
+        (antecedentes['trabajo_equipo']['interesado']           | antecedentes['trabajo_equipo']['mucho']) &
+        (antecedentes['comunicacion']['interesado']             | antecedentes['comunicacion']['mucho']) &
+        (antecedentes['cooperacion']['interesado']              | antecedentes['cooperacion']['mucho']),
         consecuencias['voley']['alto']
     ),
-    
     ctrl.Rule(
-        (antecedentes['deportes']['interesado'] | antecedentes['deportes']['mucho'] | antecedentes['deportes']['moderado'] | antecedentes['deportes']['algo']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho'] | antecedentes['social']['moderado'] | antecedentes['social']['algo']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho'] | antecedentes['competitividad']['moderado'] | antecedentes['competitividad']['algo']) &
-        (antecedentes['coordinacion']['interesado'] | antecedentes['coordinacion']['mucho'] | antecedentes['coordinacion']['moderado'] | antecedentes['coordinacion']['algo']) &
-        (antecedentes['trabajo_equipo']['interesado'] | antecedentes['trabajo_equipo']['mucho'] | antecedentes['trabajo_equipo']['moderado'] | antecedentes['trabajo_equipo']['algo']) &
-        (antecedentes['actividades_grupales']['interesado'] | antecedentes['actividades_grupales']['mucho'] | antecedentes['actividades_grupales']['moderado'] | antecedentes['actividades_grupales']['algo']) &
-        (antecedentes['colaboracion']['interesado'] | antecedentes['colaboracion']['mucho'] | antecedentes['colaboracion']['moderado'] | antecedentes['colaboracion']['algo']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho'] | antecedentes['competir']['moderado'] | antecedentes['competir']['algo']) &
-        (antecedentes['superar_limites']['interesado'] | antecedentes['superar_limites']['mucho'] | antecedentes['superar_limites']['moderado'] | antecedentes['superar_limites']['algo']) &
-        (antecedentes['mejorar_habilidades']['interesado'] | antecedentes['mejorar_habilidades']['mucho'] | antecedentes['mejorar_habilidades']['moderado'] | antecedentes['mejorar_habilidades']['algo']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho'] | antecedentes['aprender_nueva_habilidad']['moderado'] | antecedentes['aprender_nueva_habilidad']['algo']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho'] | antecedentes['crecimiento_personal']['moderado'] | antecedentes['crecimiento_personal']['algo']),
+        (antecedentes['resistencia']['moderado']              | antecedentes['resistencia']['algo']) &
+        (antecedentes['velocidad']['moderado']                | antecedentes['velocidad']['algo']) &
+        (antecedentes['fuerza']['moderado']                   | antecedentes['fuerza']['algo']) &
+        (antecedentes['agilidad']['moderado']                 | antecedentes['agilidad']['algo']) &
+        (antecedentes['coordinacion_superior']['moderado']    | antecedentes['coordinacion_superior']['algo']) &
+        (antecedentes['determinacion_motivacion']['moderado'] | antecedentes['determinacion_motivacion']['algo']) &
+        (antecedentes['resiliencia']['moderado']              | antecedentes['resiliencia']['algo']) &
+        (antecedentes['disciplina']['moderado']               | antecedentes['disciplina']['algo']) &
+        (antecedentes['liderazgo']['moderado']                | antecedentes['liderazgo']['algo']) &
+        (antecedentes['responsabilidad']['moderado']          | antecedentes['responsabilidad']['algo']) &
+        (antecedentes['solucion_problemas']['moderado']       | antecedentes['solucion_problemas']['algo']) &
+        (antecedentes['trabajo_equipo']['moderado']           | antecedentes['trabajo_equipo']['algo']) &
+        (antecedentes['comunicacion']['moderado']             | antecedentes['comunicacion']['algo']) &
+        (antecedentes['cooperacion']['moderado']              | antecedentes['cooperacion']['algo']),
         consecuencias['voley']['medio']
     ),
-
     ctrl.Rule(
-        (antecedentes['deportes']['algo'] | antecedentes['deportes']['desinteresado']) &
-        (antecedentes['social']['algo'] | antecedentes['social']['desinteresado']) &
-        (antecedentes['competitividad']['algo'] | antecedentes['competitividad']['desinteresado']) &
-        (antecedentes['coordinacion']['algo'] | antecedentes['coordinacion']['desinteresado']) &
-        (antecedentes['trabajo_equipo']['algo'] | antecedentes['trabajo_equipo']['desinteresado']) &
-        (antecedentes['actividades_grupales']['algo'] | antecedentes['actividades_grupales']['desinteresado']) &
-        (antecedentes['colaboracion']['algo'] | antecedentes['colaboracion']['desinteresado']) &
-        (antecedentes['competir']['algo'] | antecedentes['competir']['desinteresado']) &
-        (antecedentes['superar_limites']['algo'] | antecedentes['superar_limites']['desinteresado']) &
-        (antecedentes['mejorar_habilidades']['algo'] | antecedentes['mejorar_habilidades']['desinteresado']) &
-        (antecedentes['aprender_nueva_habilidad']['algo'] | antecedentes['aprender_nueva_habilidad']['desinteresado']) &
-        (antecedentes['crecimiento_personal']['algo'] | antecedentes['crecimiento_personal']['desinteresado']),
+        (antecedentes['resistencia']['algo']              | antecedentes['resistencia']['desinteresado']) &
+        (antecedentes['velocidad']['algo']                | antecedentes['velocidad']['desinteresado']) &
+        (antecedentes['fuerza']['algo']                   | antecedentes['fuerza']['desinteresado']) &
+        (antecedentes['agilidad']['algo']                 | antecedentes['agilidad']['desinteresado']) &
+        (antecedentes['coordinacion_superior']['algo']    | antecedentes['coordinacion_superior']['desinteresado']) &
+        (antecedentes['determinacion_motivacion']['algo'] | antecedentes['determinacion_motivacion']['desinteresado']) &
+        (antecedentes['resiliencia']['algo']              | antecedentes['resiliencia']['desinteresado']) &
+        (antecedentes['disciplina']['algo']               | antecedentes['disciplina']['desinteresado']) &
+        (antecedentes['liderazgo']['algo']                | antecedentes['liderazgo']['desinteresado']) &
+        (antecedentes['responsabilidad']['algo']          | antecedentes['responsabilidad']['desinteresado']) &
+        (antecedentes['solucion_problemas']['algo']       | antecedentes['solucion_problemas']['desinteresado']) &
+        (antecedentes['trabajo_equipo']['algo']           | antecedentes['trabajo_equipo']['desinteresado']) &
+        (antecedentes['comunicacion']['algo']             | antecedentes['comunicacion']['desinteresado']) &
+        (antecedentes['cooperacion']['algo']              | antecedentes['cooperacion']['desinteresado']),
         consecuencias['voley']['bajo']
     ),
-
-    ############# BALONCESTO ############
+    ############# Baloncesto ############
     ctrl.Rule(
-        (antecedentes['deportes']['interesado'] | antecedentes['deportes']['mucho']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho']) &
-        (antecedentes['coordinacion']['interesado'] | antecedentes['coordinacion']['mucho']) &
-        (antecedentes['trabajo_equipo']['interesado'] | antecedentes['trabajo_equipo']['mucho']) &
-        (antecedentes['actividades_grupales']['interesado'] | antecedentes['actividades_grupales']['mucho']) &
-        (antecedentes['colaboracion']['interesado'] | antecedentes['colaboracion']['mucho']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho']) &
-        (antecedentes['superar_limites']['interesado'] | antecedentes['superar_limites']['mucho']) &
-        (antecedentes['mejorar_habilidades']['interesado'] | antecedentes['mejorar_habilidades']['mucho']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho']),
+        (antecedentes['resistencia']['interesado']              | antecedentes['resistencia']['mucho']) &
+        (antecedentes['velocidad']['interesado']                | antecedentes['velocidad']['mucho']) &
+        (antecedentes['fuerza']['interesado']                   | antecedentes['fuerza']['mucho']) &
+        (antecedentes['agilidad']['interesado']                 | antecedentes['agilidad']['mucho']) &
+        (antecedentes['coordinacion_superior']['interesado']    | antecedentes['coordinacion_superior']['mucho']) &
+        (antecedentes['determinacion_motivacion']['interesado'] | antecedentes['determinacion_motivacion']['mucho']) &
+        (antecedentes['resiliencia']['interesado']              | antecedentes['resiliencia']['mucho']) &
+        (antecedentes['disciplina']['interesado']               | antecedentes['disciplina']['mucho']) &
+        (antecedentes['liderazgo']['interesado']                | antecedentes['liderazgo']['mucho']) &
+        (antecedentes['responsabilidad']['interesado']          | antecedentes['responsabilidad']['mucho']) &
+        (antecedentes['solucion_problemas']['interesado']       | antecedentes['solucion_problemas']['mucho']) &
+        (antecedentes['trabajo_equipo']['interesado']           | antecedentes['trabajo_equipo']['mucho']) &
+        (antecedentes['comunicacion']['interesado']             | antecedentes['comunicacion']['mucho']) &
+        (antecedentes['cooperacion']['interesado']              | antecedentes['cooperacion']['mucho']) &
+        (antecedentes['deporte_contacto']['interesado']         | antecedentes['deporte_contacto']['mucho']),
         consecuencias['baloncesto']['alto']
     ),
-    
     ctrl.Rule(
-        (antecedentes['deportes']['interesado'] | antecedentes['deportes']['mucho'] | antecedentes['deportes']['moderado'] | antecedentes['deportes']['algo']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho'] | antecedentes['social']['moderado'] | antecedentes['social']['algo']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho'] | antecedentes['competitividad']['moderado'] | antecedentes['competitividad']['algo']) &
-        (antecedentes['coordinacion']['interesado'] | antecedentes['coordinacion']['mucho'] | antecedentes['coordinacion']['moderado'] | antecedentes['coordinacion']['algo']) &
-        (antecedentes['trabajo_equipo']['interesado'] | antecedentes['trabajo_equipo']['mucho'] | antecedentes['trabajo_equipo']['moderado'] | antecedentes['trabajo_equipo']['algo']) &
-        (antecedentes['actividades_grupales']['interesado'] | antecedentes['actividades_grupales']['mucho'] | antecedentes['actividades_grupales']['moderado'] | antecedentes['actividades_grupales']['algo']) &
-        (antecedentes['colaboracion']['interesado'] | antecedentes['colaboracion']['mucho'] | antecedentes['colaboracion']['moderado'] | antecedentes['colaboracion']['algo']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho'] | antecedentes['competir']['moderado'] | antecedentes['competir']['algo']) &
-        (antecedentes['superar_limites']['interesado'] | antecedentes['superar_limites']['mucho'] | antecedentes['superar_limites']['moderado'] | antecedentes['superar_limites']['algo']) &
-        (antecedentes['mejorar_habilidades']['interesado'] | antecedentes['mejorar_habilidades']['mucho'] | antecedentes['mejorar_habilidades']['moderado'] | antecedentes['mejorar_habilidades']['algo']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho'] | antecedentes['aprender_nueva_habilidad']['moderado'] | antecedentes['aprender_nueva_habilidad']['algo']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho'] | antecedentes['crecimiento_personal']['moderado'] | antecedentes['crecimiento_personal']['algo']),
+        (antecedentes['resistencia']['moderado']              | antecedentes['resistencia']['algo']) &
+        (antecedentes['velocidad']['moderado']                | antecedentes['velocidad']['algo']) &
+        (antecedentes['fuerza']['moderado']                   | antecedentes['fuerza']['algo']) &
+        (antecedentes['agilidad']['moderado']                 | antecedentes['agilidad']['algo']) &
+        (antecedentes['coordinacion_superior']['moderado']    | antecedentes['coordinacion_superior']['algo']) &
+        (antecedentes['determinacion_motivacion']['moderado'] | antecedentes['determinacion_motivacion']['algo']) &
+        (antecedentes['resiliencia']['moderado']              | antecedentes['resiliencia']['algo']) &
+        (antecedentes['disciplina']['moderado']               | antecedentes['disciplina']['algo']) &
+        (antecedentes['liderazgo']['moderado']                | antecedentes['liderazgo']['algo']) &
+        (antecedentes['responsabilidad']['moderado']          | antecedentes['responsabilidad']['algo']) &
+        (antecedentes['solucion_problemas']['moderado']       | antecedentes['solucion_problemas']['algo']) &
+        (antecedentes['trabajo_equipo']['moderado']           | antecedentes['trabajo_equipo']['algo']) &
+        (antecedentes['comunicacion']['moderado']             | antecedentes['comunicacion']['algo']) &
+        (antecedentes['cooperacion']['moderado']              | antecedentes['cooperacion']['algo']) &
+        (antecedentes['deporte_contacto']['moderado']         | antecedentes['deporte_contacto']['algo']),
         consecuencias['baloncesto']['medio']
     ),
-
     ctrl.Rule(
-        (antecedentes['deportes']['algo'] | antecedentes['deportes']['desinteresado']) &
-        (antecedentes['social']['algo'] | antecedentes['social']['desinteresado']) &
-        (antecedentes['competitividad']['algo'] | antecedentes['competitividad']['desinteresado']) &
-        (antecedentes['coordinacion']['algo'] | antecedentes['coordinacion']['desinteresado']) &
-        (antecedentes['trabajo_equipo']['algo'] | antecedentes['trabajo_equipo']['desinteresado']) &
-        (antecedentes['actividades_grupales']['algo'] | antecedentes['actividades_grupales']['desinteresado']) &
-        (antecedentes['colaboracion']['algo'] | antecedentes['colaboracion']['desinteresado']) &
-        (antecedentes['competir']['algo'] | antecedentes['competir']['desinteresado']) &
-        (antecedentes['superar_limites']['algo'] | antecedentes['superar_limites']['desinteresado']) &
-        (antecedentes['mejorar_habilidades']['algo'] | antecedentes['mejorar_habilidades']['desinteresado']) &
-        (antecedentes['aprender_nueva_habilidad']['algo'] | antecedentes['aprender_nueva_habilidad']['desinteresado']) &
-        (antecedentes['crecimiento_personal']['algo'] | antecedentes['crecimiento_personal']['desinteresado']),
+        (antecedentes['resistencia']['algo']              | antecedentes['resistencia']['desinteresado']) &
+        (antecedentes['velocidad']['algo']                | antecedentes['velocidad']['desinteresado']) &
+        (antecedentes['fuerza']['algo']                   | antecedentes['fuerza']['desinteresado']) &
+        (antecedentes['agilidad']['algo']                 | antecedentes['agilidad']['desinteresado']) &
+        (antecedentes['coordinacion_superior']['algo']    | antecedentes['coordinacion_superior']['desinteresado']) &
+        (antecedentes['determinacion_motivacion']['algo'] | antecedentes['determinacion_motivacion']['desinteresado']) &
+        (antecedentes['resiliencia']['algo']              | antecedentes['resiliencia']['desinteresado']) &
+        (antecedentes['disciplina']['algo']               | antecedentes['disciplina']['desinteresado']) &
+        (antecedentes['liderazgo']['algo']                | antecedentes['liderazgo']['desinteresado']) &
+        (antecedentes['responsabilidad']['algo']          | antecedentes['responsabilidad']['desinteresado']) &
+        (antecedentes['solucion_problemas']['algo']       | antecedentes['solucion_problemas']['desinteresado']) &
+        (antecedentes['trabajo_equipo']['algo']           | antecedentes['trabajo_equipo']['desinteresado']) &
+        (antecedentes['comunicacion']['algo']             | antecedentes['comunicacion']['desinteresado']) &
+        (antecedentes['cooperacion']['algo']              | antecedentes['cooperacion']['desinteresado']) &
+        (antecedentes['deporte_contacto']['algo']         | antecedentes['deporte_contacto']['desinteresado']),
         consecuencias['baloncesto']['bajo']
     ),
-
-    ############# NATACIÓN ############
+    ############# Natacion ############
     ctrl.Rule(
-        (antecedentes['deportes']['interesado'] | antecedentes['deportes']['mucho']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho']) &
-        (antecedentes['coordinacion']['interesado'] | antecedentes['coordinacion']['mucho']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho']) &
-        (antecedentes['superar_limites']['interesado'] | antecedentes['superar_limites']['mucho']) &
-        (antecedentes['mejorar_habilidades']['interesado'] | antecedentes['mejorar_habilidades']['mucho']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho']),
+        (antecedentes['resistencia']['interesado']              | antecedentes['resistencia']['mucho']) &
+        (antecedentes['velocidad']['interesado']                | antecedentes['velocidad']['mucho']) &
+        (antecedentes['fuerza']['interesado']                   | antecedentes['fuerza']['mucho']) &
+        (antecedentes['coordinacion_superior']['interesado']    | antecedentes['coordinacion_superior']['mucho']) &
+        (antecedentes['coordinacion_inferior']['interesado']    | antecedentes['coordinacion_inferior']['mucho']) &
+        (antecedentes['determinacion_motivacion']['interesado'] | antecedentes['determinacion_motivacion']['mucho']) &
+        (antecedentes['resiliencia']['interesado']              | antecedentes['resiliencia']['mucho']) &
+        (antecedentes['disciplina']['interesado']               | antecedentes['disciplina']['mucho']) &
+        (antecedentes['trabajo_individual']['interesado']       | antecedentes['trabajo_individual']['mucho']),
         consecuencias['natacion']['alto']
     ),
-
     ctrl.Rule(
-        (antecedentes['deportes']['interesado'] | antecedentes['deportes']['mucho'] | antecedentes['deportes']['moderado'] | antecedentes['deportes']['algo']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho'] | antecedentes['competitividad']['moderado'] | antecedentes['competitividad']['algo']) &
-        (antecedentes['coordinacion']['interesado'] | antecedentes['coordinacion']['mucho'] | antecedentes['coordinacion']['moderado'] | antecedentes['coordinacion']['algo']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho'] | antecedentes['competir']['moderado'] | antecedentes['competir']['algo']) &
-        (antecedentes['superar_limites']['interesado'] | antecedentes['superar_limites']['mucho'] | antecedentes['superar_limites']['moderado'] | antecedentes['superar_limites']['algo']) &
-        (antecedentes['mejorar_habilidades']['interesado'] | antecedentes['mejorar_habilidades']['mucho'] | antecedentes['mejorar_habilidades']['moderado'] | antecedentes['mejorar_habilidades']['algo']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho'] | antecedentes['aprender_nueva_habilidad']['moderado'] | antecedentes['aprender_nueva_habilidad']['algo']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho'] | antecedentes['crecimiento_personal']['moderado'] | antecedentes['crecimiento_personal']['algo']),
+        (antecedentes['resistencia']['moderado']              | antecedentes['resistencia']['algo']) &
+        (antecedentes['velocidad']['moderado']                | antecedentes['velocidad']['algo']) &
+        (antecedentes['fuerza']['moderado']                   | antecedentes['fuerza']['algo']) &
+        (antecedentes['coordinacion_superior']['moderado']    | antecedentes['coordinacion_superior']['algo']) &
+        (antecedentes['coordinacion_inferior']['moderado']    | antecedentes['coordinacion_inferior']['algo']) &
+        (antecedentes['determinacion_motivacion']['moderado'] | antecedentes['determinacion_motivacion']['algo']) &
+        (antecedentes['resiliencia']['moderado']              | antecedentes['resiliencia']['algo']) &
+        (antecedentes['disciplina']['moderado']               | antecedentes['disciplina']['algo']) &
+        (antecedentes['trabajo_individual']['moderado']       | antecedentes['trabajo_individual']['algo']),
         consecuencias['natacion']['medio']
     ),
-
     ctrl.Rule(
-        (antecedentes['deportes']['algo'] | antecedentes['deportes']['desinteresado']) &
-        (antecedentes['competitividad']['algo'] | antecedentes['competitividad']['desinteresado']) &
-        (antecedentes['coordinacion']['algo'] | antecedentes['coordinacion']['desinteresado']) &
-        (antecedentes['competir']['algo'] | antecedentes['competir']['desinteresado']) &
-        (antecedentes['superar_limites']['algo'] | antecedentes['superar_limites']['desinteresado']) &
-        (antecedentes['mejorar_habilidades']['algo'] | antecedentes['mejorar_habilidades']['desinteresado']) &
-        (antecedentes['aprender_nueva_habilidad']['algo'] | antecedentes['aprender_nueva_habilidad']['desinteresado']) &
-        (antecedentes['crecimiento_personal']['algo'] | antecedentes['crecimiento_personal']['desinteresado']),
+        (antecedentes['resistencia']['algo']              | antecedentes['resistencia']['desinteresado']) &
+        (antecedentes['velocidad']['algo']                | antecedentes['velocidad']['desinteresado']) &
+        (antecedentes['fuerza']['algo']                   | antecedentes['fuerza']['desinteresado']) &
+        (antecedentes['coordinacion_superior']['algo']    | antecedentes['coordinacion_superior']['desinteresado']) &
+        (antecedentes['coordinacion_inferior']['algo']    | antecedentes['coordinacion_inferior']['desinteresado']) &
+        (antecedentes['determinacion_motivacion']['algo'] | antecedentes['determinacion_motivacion']['desinteresado']) &
+        (antecedentes['resiliencia']['algo']              | antecedentes['resiliencia']['desinteresado']) &
+        (antecedentes['disciplina']['algo']               | antecedentes['disciplina']['desinteresado']) &
+        (antecedentes['trabajo_individual']['algo']       | antecedentes['trabajo_individual']['desinteresado']),
         consecuencias['natacion']['bajo']
     ),
-    
-    ############# ARTES_MARCIALES ############
+    ############# Artes Marciales ############
     ctrl.Rule(
-        (antecedentes['deportes']['interesado'] | antecedentes['deportes']['mucho']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho']) &
-        (antecedentes['independencia']['interesado'] | antecedentes['independencia']['mucho']) &
-        (antecedentes['coordinacion']['interesado'] | antecedentes['coordinacion']['mucho']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho']) &
-        (antecedentes['superar_limites']['interesado'] | antecedentes['superar_limites']['mucho']) &
-        (antecedentes['liberar_energia']['interesado'] | antecedentes['liberar_energia']['mucho']) &
-        (antecedentes['mejorar_habilidades']['interesado'] | antecedentes['mejorar_habilidades']['mucho']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho']),
+        (antecedentes['resistencia']['interesado']              | antecedentes['resistencia']['mucho']) &
+        (antecedentes['velocidad']['interesado']                | antecedentes['velocidad']['mucho']) &
+        (antecedentes['fuerza']['interesado']                   | antecedentes['fuerza']['mucho']) &
+        (antecedentes['agilidad']['interesado']                 | antecedentes['agilidad']['mucho']) &
+        (antecedentes['coordinacion_superior']['interesado']    | antecedentes['coordinacion_superior']['mucho']) &
+        (antecedentes['coordinacion_inferior']['interesado']    | antecedentes['coordinacion_inferior']['mucho']) &
+        (antecedentes['determinacion_motivacion']['interesado'] | antecedentes['determinacion_motivacion']['mucho']) &
+        (antecedentes['resiliencia']['interesado']              | antecedentes['resiliencia']['mucho']) &
+        (antecedentes['disciplina']['interesado']               | antecedentes['disciplina']['mucho']) &
+        (antecedentes['responsabilidad']['interesado']          | antecedentes['responsabilidad']['mucho']) &
+        (antecedentes['autocontrol']['interesado']              | antecedentes['autocontrol']['mucho']) &
+        (antecedentes['equilibrio_fisica_mental']['interesado'] | antecedentes['equilibrio_fisica_mental']['mucho']) &
+        (antecedentes['trabajo_individual']['interesado']       | antecedentes['trabajo_individual']['mucho']) &
+        (antecedentes['deporte_contacto']['interesado']         | antecedentes['deporte_contacto']['mucho']),
         consecuencias['artes_marciales']['alto']
     ),
-
     ctrl.Rule(
-        (antecedentes['deportes']['interesado'] | antecedentes['deportes']['mucho'] | antecedentes['deportes']['moderado'] | antecedentes['deportes']['algo']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho'] | antecedentes['competitividad']['moderado'] | antecedentes['competitividad']['algo']) &
-        (antecedentes['independencia']['interesado'] | antecedentes['independencia']['mucho'] | antecedentes['independencia']['moderado'] | antecedentes['independencia']['algo']) &
-        (antecedentes['coordinacion']['interesado'] | antecedentes['coordinacion']['mucho'] | antecedentes['coordinacion']['moderado'] | antecedentes['coordinacion']['algo']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho'] | antecedentes['competir']['moderado'] | antecedentes['competir']['algo']) &
-        (antecedentes['superar_limites']['interesado'] | antecedentes['superar_limites']['mucho'] | antecedentes['superar_limites']['moderado'] | antecedentes['superar_limites']['algo']) &
-        (antecedentes['liberar_energia']['interesado'] | antecedentes['liberar_energia']['mucho'] | antecedentes['liberar_energia']['moderado'] | antecedentes['liberar_energia']['algo']) &
-        (antecedentes['mejorar_habilidades']['interesado'] | antecedentes['mejorar_habilidades']['mucho'] | antecedentes['mejorar_habilidades']['moderado'] | antecedentes['mejorar_habilidades']['algo']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho'] | antecedentes['aprender_nueva_habilidad']['moderado'] | antecedentes['aprender_nueva_habilidad']['algo']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho'] | antecedentes['crecimiento_personal']['moderado'] | antecedentes['crecimiento_personal']['algo']),
+        (antecedentes['resistencia']['moderado']              | antecedentes['resistencia']['algo']) &
+        (antecedentes['velocidad']['moderado']                | antecedentes['velocidad']['algo']) &
+        (antecedentes['fuerza']['moderado']                   | antecedentes['fuerza']['algo']) &
+        (antecedentes['agilidad']['moderado']                 | antecedentes['agilidad']['algo']) &
+        (antecedentes['coordinacion_superior']['moderado']    | antecedentes['coordinacion_superior']['algo']) &
+        (antecedentes['coordinacion_inferior']['moderado']    | antecedentes['coordinacion_inferior']['algo']) &
+        (antecedentes['determinacion_motivacion']['moderado'] | antecedentes['determinacion_motivacion']['algo']) &
+        (antecedentes['resiliencia']['moderado']              | antecedentes['resiliencia']['algo']) &
+        (antecedentes['disciplina']['moderado']               | antecedentes['disciplina']['algo']) &
+        (antecedentes['responsabilidad']['moderado']          | antecedentes['responsabilidad']['algo']) &
+        (antecedentes['autocontrol']['moderado']              | antecedentes['autocontrol']['algo']) &
+        (antecedentes['equilibrio_fisica_mental']['moderado'] | antecedentes['equilibrio_fisica_mental']['algo']) &
+        (antecedentes['trabajo_individual']['moderado']       | antecedentes['trabajo_individual']['algo']) &
+        (antecedentes['deporte_contacto']['moderado']         | antecedentes['deporte_contacto']['algo']),
         consecuencias['artes_marciales']['medio']
     ),
-
     ctrl.Rule(
-        (antecedentes['deportes']['algo'] | antecedentes['deportes']['desinteresado']) &
-        (antecedentes['competitividad']['algo'] | antecedentes['competitividad']['desinteresado']) &
-        (antecedentes['independencia']['algo'] | antecedentes['independencia']['desinteresado']) &
-        (antecedentes['coordinacion']['algo'] | antecedentes['coordinacion']['desinteresado']) &
-        (antecedentes['competir']['algo'] | antecedentes['competir']['desinteresado']) &
-        (antecedentes['superar_limites']['algo'] | antecedentes['superar_limites']['desinteresado']) &
-        (antecedentes['liberar_energia']['algo'] | antecedentes['liberar_energia']['desinteresado']) &
-        (antecedentes['mejorar_habilidades']['algo'] | antecedentes['mejorar_habilidades']['desinteresado']) &
-        (antecedentes['aprender_nueva_habilidad']['algo'] | antecedentes['aprender_nueva_habilidad']['desinteresado']) &
-        (antecedentes['crecimiento_personal']['algo'] | antecedentes['crecimiento_personal']['desinteresado']),
+        (antecedentes['resistencia']['algo']              | antecedentes['resistencia']['desinteresado']) &
+        (antecedentes['velocidad']['algo']                | antecedentes['velocidad']['desinteresado']) &
+        (antecedentes['fuerza']['algo']                   | antecedentes['fuerza']['desinteresado']) &
+        (antecedentes['agilidad']['algo']                 | antecedentes['agilidad']['desinteresado']) &
+        (antecedentes['coordinacion_superior']['algo']    | antecedentes['coordinacion_superior']['desinteresado']) &
+        (antecedentes['coordinacion_inferior']['algo']    | antecedentes['coordinacion_inferior']['desinteresado']) &
+        (antecedentes['determinacion_motivacion']['algo'] | antecedentes['determinacion_motivacion']['desinteresado']) &
+        (antecedentes['resiliencia']['algo']              | antecedentes['resiliencia']['desinteresado']) &
+        (antecedentes['disciplina']['algo']               | antecedentes['disciplina']['desinteresado']) &
+        (antecedentes['responsabilidad']['algo']          | antecedentes['responsabilidad']['desinteresado']) &
+        (antecedentes['autocontrol']['algo']              | antecedentes['autocontrol']['desinteresado']) &
+        (antecedentes['equilibrio_fisica_mental']['algo'] | antecedentes['equilibrio_fisica_mental']['desinteresado']) &
+        (antecedentes['trabajo_individual']['algo']       | antecedentes['trabajo_individual']['desinteresado']) &
+        (antecedentes['deporte_contacto']['algo']         | antecedentes['deporte_contacto']['desinteresado']),
         consecuencias['artes_marciales']['bajo']
     ),
-    
-    ############# CICLISMO ############
+    ############# Ciclismo ############
     ctrl.Rule(
-        (antecedentes['deportes']['interesado'] | antecedentes['deportes']['mucho']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho']) &
-        (antecedentes['independencia']['interesado'] | antecedentes['independencia']['mucho']) &
-        (antecedentes['coordinacion']['interesado'] | antecedentes['coordinacion']['mucho']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho']) &
-        (antecedentes['superar_limites']['interesado'] | antecedentes['superar_limites']['mucho']) &
-        (antecedentes['liberar_energia']['interesado'] | antecedentes['liberar_energia']['mucho']) &
-        (antecedentes['desconectar']['interesado'] | antecedentes['desconectar']['mucho']) &
-        (antecedentes['mejorar_habilidades']['interesado'] | antecedentes['mejorar_habilidades']['mucho']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho']),
+        (antecedentes['resistencia']['interesado']              | antecedentes['resistencia']['mucho']) &
+        (antecedentes['velocidad']['interesado']                | antecedentes['velocidad']['mucho']) &
+        (antecedentes['fuerza']['interesado']                   | antecedentes['fuerza']['mucho']) &
+        (antecedentes['agilidad']['interesado']                 | antecedentes['agilidad']['mucho']) &
+        (antecedentes['coordinacion_superior']['interesado']    | antecedentes['coordinacion_superior']['mucho']) &
+        (antecedentes['determinacion_motivacion']['interesado'] | antecedentes['determinacion_motivacion']['mucho']) &
+        (antecedentes['resiliencia']['interesado']              | antecedentes['resiliencia']['mucho']) &
+        (antecedentes['disciplina']['interesado']               | antecedentes['disciplina']['mucho']) &
+        (antecedentes['trabajo_individual']['interesado']       | antecedentes['trabajo_individual']['mucho']),
         consecuencias['ciclismo']['alto']
     ),
-
     ctrl.Rule(
-        (antecedentes['deportes']['interesado'] | antecedentes['deportes']['mucho'] | antecedentes['deportes']['moderado'] | antecedentes['deportes']['algo']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho'] | antecedentes['competitividad']['moderado'] | antecedentes['competitividad']['algo']) &
-        (antecedentes['independencia']['interesado'] | antecedentes['independencia']['mucho'] | antecedentes['independencia']['moderado'] | antecedentes['independencia']['algo']) &
-        (antecedentes['coordinacion']['interesado'] | antecedentes['coordinacion']['mucho'] | antecedentes['coordinacion']['moderado'] | antecedentes['coordinacion']['algo']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho'] | antecedentes['competir']['moderado'] | antecedentes['competir']['algo']) &
-        (antecedentes['superar_limites']['interesado'] | antecedentes['superar_limites']['mucho'] | antecedentes['superar_limites']['moderado'] | antecedentes['superar_limites']['algo']) &
-        (antecedentes['liberar_energia']['interesado'] | antecedentes['liberar_energia']['mucho'] | antecedentes['liberar_energia']['moderado'] | antecedentes['liberar_energia']['algo']) &
-        (antecedentes['desconectar']['interesado'] | antecedentes['desconectar']['mucho'] | antecedentes['desconectar']['moderado'] | antecedentes['desconectar']['algo']) &
-        (antecedentes['mejorar_habilidades']['interesado'] | antecedentes['mejorar_habilidades']['mucho'] | antecedentes['mejorar_habilidades']['moderado'] | antecedentes['mejorar_habilidades']['algo']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho'] | antecedentes['aprender_nueva_habilidad']['moderado'] | antecedentes['aprender_nueva_habilidad']['algo']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho'] | antecedentes['crecimiento_personal']['moderado'] | antecedentes['crecimiento_personal']['algo']),
+        (antecedentes['resistencia']['moderado']              | antecedentes['resistencia']['algo']) &
+        (antecedentes['velocidad']['moderado']                | antecedentes['velocidad']['algo']) &
+        (antecedentes['fuerza']['moderado']                   | antecedentes['fuerza']['algo']) &
+        (antecedentes['agilidad']['moderado']                 | antecedentes['agilidad']['algo']) &
+        (antecedentes['coordinacion_superior']['moderado']    | antecedentes['coordinacion_superior']['algo']) &
+        (antecedentes['determinacion_motivacion']['moderado'] | antecedentes['determinacion_motivacion']['algo']) &
+        (antecedentes['resiliencia']['moderado']              | antecedentes['resiliencia']['algo']) &
+        (antecedentes['disciplina']['moderado']               | antecedentes['disciplina']['algo']) &
+        (antecedentes['trabajo_individual']['moderado']       | antecedentes['trabajo_individual']['algo']),
         consecuencias['ciclismo']['medio']
     ),
-
     ctrl.Rule(
-        (antecedentes['deportes']['algo'] | antecedentes['deportes']['desinteresado']) &
-        (antecedentes['competitividad']['algo'] | antecedentes['competitividad']['desinteresado']) &
-        (antecedentes['independencia']['algo'] | antecedentes['independencia']['desinteresado']) &
-        (antecedentes['coordinacion']['algo'] | antecedentes['coordinacion']['desinteresado']) &
-        (antecedentes['competir']['algo'] | antecedentes['competir']['desinteresado']) &
-        (antecedentes['superar_limites']['algo'] | antecedentes['superar_limites']['desinteresado']) &
-        (antecedentes['liberar_energia']['algo'] | antecedentes['liberar_energia']['desinteresado']) &
-        (antecedentes['desconectar']['algo'] | antecedentes['desconectar']['desinteresado']) &
-        (antecedentes['mejorar_habilidades']['algo'] | antecedentes['mejorar_habilidades']['desinteresado']) &
-        (antecedentes['aprender_nueva_habilidad']['algo'] | antecedentes['aprender_nueva_habilidad']['desinteresado']) &
-        (antecedentes['crecimiento_personal']['algo'] | antecedentes['crecimiento_personal']['desinteresado']),
+        (antecedentes['resistencia']['algo']              | antecedentes['resistencia']['desinteresado']) &
+        (antecedentes['velocidad']['algo']                | antecedentes['velocidad']['desinteresado']) &
+        (antecedentes['fuerza']['algo']                   | antecedentes['fuerza']['desinteresado']) &
+        (antecedentes['agilidad']['algo']                 | antecedentes['agilidad']['desinteresado']) &
+        (antecedentes['coordinacion_superior']['algo']    | antecedentes['coordinacion_superior']['desinteresado']) &
+        (antecedentes['determinacion_motivacion']['algo'] | antecedentes['determinacion_motivacion']['desinteresado']) &
+        (antecedentes['resiliencia']['algo']              | antecedentes['resiliencia']['desinteresado']) &
+        (antecedentes['disciplina']['algo']               | antecedentes['disciplina']['desinteresado']) &
+        (antecedentes['trabajo_individual']['algo']       | antecedentes['trabajo_individual']['desinteresado']),
         consecuencias['ciclismo']['bajo']
     ),
-    ############# TEATRO ############
+    ############# Ajedrez ############
     ctrl.Rule(
-        (antecedentes['artes']['interesado'] | antecedentes['artes']['mucho']) &
-        (antecedentes['creatividad']['interesado'] | antecedentes['creatividad']['mucho']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho']) &
-        (antecedentes['autoexpresion']['interesado'] | antecedentes['autoexpresion']['mucho']) &
-        (antecedentes['creatividad_habilidad']['interesado'] | antecedentes['creatividad_habilidad']['mucho']) &
-        (antecedentes['trabajo_equipo']['interesado'] | antecedentes['trabajo_equipo']['mucho']) &
-        (antecedentes['actividades_grupales']['interesado'] | antecedentes['actividades_grupales']['mucho']) &
-        (antecedentes['colaboracion']['interesado'] | antecedentes['colaboracion']['mucho']) &
-        (antecedentes['compartir_ideas']['interesado'] | antecedentes['compartir_ideas']['mucho']),
-        consecuencias['teatro']['alto']
-    ),
-
-    ctrl.Rule(
-        (antecedentes['artes']['interesado'] | antecedentes['artes']['mucho'] | antecedentes['artes']['moderado'] | antecedentes['artes']['algo']) &
-        (antecedentes['creatividad']['interesado'] | antecedentes['creatividad']['mucho'] | antecedentes['creatividad']['moderado'] | antecedentes['creatividad']['algo']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho'] | antecedentes['social']['moderado'] | antecedentes['social']['algo']) &
-        (antecedentes['autoexpresion']['interesado'] | antecedentes['autoexpresion']['mucho'] | antecedentes['autoexpresion']['moderado'] | antecedentes['autoexpresion']['algo']) &
-        (antecedentes['creatividad_habilidad']['interesado'] | antecedentes['creatividad_habilidad']['mucho'] | antecedentes['creatividad_habilidad']['moderado'] | antecedentes['creatividad_habilidad']['algo']) &
-        (antecedentes['trabajo_equipo']['interesado'] | antecedentes['trabajo_equipo']['mucho'] | antecedentes['trabajo_equipo']['moderado'] | antecedentes['trabajo_equipo']['algo']) &
-        (antecedentes['actividades_grupales']['interesado'] | antecedentes['actividades_grupales']['mucho'] | antecedentes['actividades_grupales']['moderado'] | antecedentes['actividades_grupales']['algo']) &
-        (antecedentes['colaboracion']['interesado'] | antecedentes['colaboracion']['mucho'] | antecedentes['colaboracion']['moderado'] | antecedentes['colaboracion']['algo']) &
-        (antecedentes['compartir_ideas']['interesado'] | antecedentes['compartir_ideas']['mucho'] | antecedentes['compartir_ideas']['moderado'] | antecedentes['compartir_ideas']['algo']),
-        consecuencias['teatro']['medio']
-    ),
-
-    ctrl.Rule(
-        (antecedentes['artes']['algo'] | antecedentes['artes']['desinteresado']) &
-        (antecedentes['creatividad']['algo'] | antecedentes['creatividad']['desinteresado']) &
-        (antecedentes['social']['algo'] | antecedentes['social']['desinteresado']) &
-        (antecedentes['autoexpresion']['algo'] | antecedentes['autoexpresion']['desinteresado']) &
-        (antecedentes['creatividad_habilidad']['algo'] | antecedentes['creatividad_habilidad']['desinteresado']) &
-        (antecedentes['trabajo_equipo']['algo'] | antecedentes['trabajo_equipo']['desinteresado']) &
-        (antecedentes['actividades_grupales']['algo'] | antecedentes['actividades_grupales']['desinteresado']) &
-        (antecedentes['colaboracion']['algo'] | antecedentes['colaboracion']['desinteresado']) &
-        (antecedentes['compartir_ideas']['algo'] | antecedentes['compartir_ideas']['desinteresado']),
-        consecuencias['teatro']['bajo']
-    ),
-
-    ############# MUSICA ############
-    ctrl.Rule(
-        (antecedentes['artes']['interesado'] | antecedentes['artes']['mucho']) &
-        (antecedentes['creatividad']['interesado'] | antecedentes['creatividad']['mucho']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho']) &
-        (antecedentes['autoexpresion']['interesado'] | antecedentes['autoexpresion']['mucho']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho']) &
-        (antecedentes['expresion_artistica']['interesado'] | antecedentes['expresion_artistica']['mucho']),
-        consecuencias['musica']['alto']
-    ),
-
-    ctrl.Rule(
-        (antecedentes['artes']['interesado'] | antecedentes['artes']['mucho'] | antecedentes['artes']['moderado'] | antecedentes['artes']['algo']) &
-        (antecedentes['creatividad']['interesado'] | antecedentes['creatividad']['mucho'] | antecedentes['creatividad']['moderado'] | antecedentes['creatividad']['algo']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho'] | antecedentes['social']['moderado'] | antecedentes['social']['algo']) &
-        (antecedentes['autoexpresion']['interesado'] | antecedentes['autoexpresion']['mucho'] | antecedentes['autoexpresion']['moderado'] | antecedentes['autoexpresion']['algo']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho'] | antecedentes['competitividad']['moderado'] | antecedentes['competitividad']['algo']) &
-        (antecedentes['expresion_artistica']['interesado'] | antecedentes['expresion_artistica']['mucho'] | antecedentes['expresion_artistica']['moderado'] | antecedentes['expresion_artistica']['algo']),
-        consecuencias['musica']['medio']
-    ),
-
-    ctrl.Rule(
-        (antecedentes['artes']['algo'] | antecedentes['artes']['desinteresado']) &
-        (antecedentes['creatividad']['algo'] | antecedentes['creatividad']['desinteresado']) &
-        (antecedentes['social']['algo'] | antecedentes['social']['desinteresado']) &
-        (antecedentes['autoexpresion']['algo'] | antecedentes['autoexpresion']['desinteresado']) &
-        (antecedentes['competitividad']['algo'] | antecedentes['competitividad']['desinteresado']) &
-        (antecedentes['expresion_artistica']['algo'] | antecedentes['expresion_artistica']['desinteresado']),
-        consecuencias['musica']['bajo']
-    ),
-
-    ############# DANZA ############
-    ctrl.Rule(
-        (antecedentes['artes']['interesado'] | antecedentes['artes']['mucho']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho']) &
-        (antecedentes['expresion_artistica']['interesado'] | antecedentes['expresion_artistica']['mucho']) &
-        (antecedentes['trabajo_equipo']['interesado'] | antecedentes['trabajo_equipo']['mucho']) &
-        (antecedentes['actividades_grupales']['interesado'] | antecedentes['actividades_grupales']['mucho']) &
-        (antecedentes['deportes_relajacion']['interesado'] | antecedentes['deportes_relajacion']['mucho']) &
-        (antecedentes['mejorar_habilidades']['interesado'] | antecedentes['mejorar_habilidades']['mucho']) &
-        (antecedentes['desarrollo_liderazgo']['interesado'] | antecedentes['desarrollo_liderazgo']['mucho']) &
-        (antecedentes['equilibrio_salud']['interesado'] | antecedentes['equilibrio_salud']['mucho']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['equilibrio_salud']['mucho']) &        
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho']),
-        consecuencias['danza']['alto']
-    ),
-    
-    ctrl.Rule(
-        (antecedentes['artes']['interesado'] | antecedentes['artes']['mucho'] | antecedentes['artes']['moderado'] | antecedentes['artes']['algo']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho'] | antecedentes['social']['moderado'] | antecedentes['social']['algo']) &
-        (antecedentes['expresion_artistica']['interesado'] | antecedentes['expresion_artistica']['mucho'] | antecedentes['expresion_artistica']['moderado'] | antecedentes['expresion_artistica']['algo']) &
-        (antecedentes['trabajo_equipo']['interesado'] | antecedentes['trabajo_equipo']['mucho'] | antecedentes['trabajo_equipo']['moderado'] | antecedentes['trabajo_equipo']['algo']) &
-        (antecedentes['actividades_grupales']['interesado'] | antecedentes['actividades_grupales']['mucho'] | antecedentes['actividades_grupales']['moderado'] | antecedentes['actividades_grupales']['algo']) &
-        (antecedentes['deportes_relajacion']['interesado'] | antecedentes['deportes_relajacion']['mucho'] | antecedentes['deportes_relajacion']['moderado'] | antecedentes['deportes_relajacion']['algo']) &
-        (antecedentes['mejorar_habilidades']['interesado'] | antecedentes['mejorar_habilidades']['mucho'] | antecedentes['mejorar_habilidades']['moderado'] | antecedentes['mejorar_habilidades']['algo']) &
-        (antecedentes['desarrollo_liderazgo']['interesado'] | antecedentes['desarrollo_liderazgo']['mucho'] | antecedentes['desarrollo_liderazgo']['moderado'] | antecedentes['desarrollo_liderazgo']['algo']) &
-        (antecedentes['equilibrio_salud']['interesado'] | antecedentes['equilibrio_salud']['mucho'] | antecedentes['equilibrio_salud']['moderado'] | antecedentes['equilibrio_salud']['algo']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho'] | antecedentes['aprender_nueva_habilidad']['moderado'] | antecedentes['aprender_nueva_habilidad']['algo']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho'] | antecedentes['crecimiento_personal']['moderado'] | antecedentes['crecimiento_personal']['algo']),
-        consecuencias['danza']['medio']
-    ),
-        
-    ctrl.Rule(
-        (antecedentes['artes']['algo'] | antecedentes['artes']['desinteresado']) &
-        (antecedentes['social']['algo'] | antecedentes['social']['desinteresado']) &
-        (antecedentes['expresion_artistica']['algo'] | antecedentes['expresion_artistica']['desinteresado']) &
-        (antecedentes['trabajo_equipo']['algo'] | antecedentes['trabajo_equipo']['desinteresado']) &
-        (antecedentes['actividades_grupales']['algo'] | antecedentes['actividades_grupales']['desinteresado']) &
-        (antecedentes['deportes_relajacion']['algo'] | antecedentes['deportes_relajacion']['desinteresado']) &
-        (antecedentes['mejorar_habilidades']['algo'] | antecedentes['mejorar_habilidades']['desinteresado']) &
-        (antecedentes['desarrollo_liderazgo']['algo'] | antecedentes['desarrollo_liderazgo']['desinteresado']) &
-        (antecedentes['equilibrio_salud']['algo'] | antecedentes['equilibrio_salud']['desinteresado']) &
-        (antecedentes['aprender_nueva_habilidad']['algo'] | antecedentes['aprender_nueva_habilidad']['desinteresado']) &
-        (antecedentes['crecimiento_personal']['algo'] | antecedentes['crecimiento_personal']['desinteresado']),
-        consecuencias['danza']['bajo']
-    ),
-
-    ############# FOTOGRAFIA ############
-    ctrl.Rule(
-        (antecedentes['artes']['interesado'] | antecedentes['artes']['mucho']) &
-        (antecedentes['tecnologia']['interesado'] | antecedentes['tecnologia']['mucho']) &
-        (antecedentes['creatividad']['interesado'] | antecedentes['creatividad']['mucho']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho']) &
-        (antecedentes['independencia']['interesado'] | antecedentes['independencia']['mucho']) &
-        (antecedentes['creatividad_habilidad']['interesado'] | antecedentes['creatividad_habilidad']['mucho']) &
-        (antecedentes['tecnologia_habilidad']['interesado'] | antecedentes['tecnologia_habilidad']['mucho']) &
-        (antecedentes['expresion_artistica']['interesado'] | antecedentes['expresion_artistica']['mucho']) &
-        (antecedentes['aprendizaje']['interesado'] | antecedentes['aprendizaje']['mucho']) &        
-        (antecedentes['desconectar']['interesado'] | antecedentes['desconectar']['mucho']) &
-        (antecedentes['aprender_nueva_habilidad']['algo'] | antecedentes['aprender_nueva_habilidad']['desinteresado']),
-        consecuencias['fotografia']['alto']
-    ),
-    
-    ctrl.Rule(
-        (antecedentes['artes']['interesado'] | antecedentes['artes']['mucho'] | antecedentes['artes']['moderado'] | antecedentes['artes']['algo']) &
-        (antecedentes['tecnologia']['interesado'] | antecedentes['tecnologia']['mucho'] | antecedentes['tecnologia']['moderado'] | antecedentes['tecnologia']['algo']) &
-        (antecedentes['creatividad']['interesado'] | antecedentes['creatividad']['mucho'] | antecedentes['creatividad']['moderado'] | antecedentes['creatividad']['algo']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho'] | antecedentes['social']['moderado'] | antecedentes['social']['algo']) &
-        (antecedentes['independencia']['interesado'] | antecedentes['independencia']['mucho'] | antecedentes['independencia']['moderado'] | antecedentes['independencia']['algo']) &
-        (antecedentes['creatividad_habilidad']['interesado'] | antecedentes['creatividad_habilidad']['mucho'] | antecedentes['creatividad_habilidad']['moderado'] | antecedentes['creatividad_habilidad']['algo']) &
-        (antecedentes['tecnologia_habilidad']['interesado'] | antecedentes['tecnologia_habilidad']['mucho'] | antecedentes['tecnologia_habilidad']['moderado'] | antecedentes['tecnologia_habilidad']['algo']) &
-        (antecedentes['expresion_artistica']['interesado'] | antecedentes['expresion_artistica']['mucho'] | antecedentes['expresion_artistica']['moderado'] | antecedentes['expresion_artistica']['algo']) &
-        (antecedentes['aprendizaje']['interesado'] | antecedentes['aprendizaje']['mucho'] | antecedentes['aprendizaje']['moderado'] | antecedentes['aprendizaje']['algo']) &
-        (antecedentes['desconectar']['interesado'] | antecedentes['desconectar']['mucho'] | antecedentes['desconectar']['moderado'] | antecedentes['desconectar']['algo']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho'] | antecedentes['aprender_nueva_habilidad']['moderado'] | antecedentes['aprender_nueva_habilidad']['algo']),
-        consecuencias['fotografia']['medio']
-    ),
-        
-    ctrl.Rule(
-        (antecedentes['artes']['algo'] | antecedentes['artes']['desinteresado']) &
-        (antecedentes['tecnologia']['algo'] | antecedentes['tecnologia']['desinteresado']) &
-        (antecedentes['creatividad']['algo'] | antecedentes['creatividad']['desinteresado']) &
-        (antecedentes['social']['algo'] | antecedentes['social']['desinteresado']) &
-        (antecedentes['independencia']['algo'] | antecedentes['independencia']['desinteresado']) &
-        (antecedentes['creatividad_habilidad']['algo'] | antecedentes['creatividad_habilidad']['desinteresado']) &
-        (antecedentes['tecnologia_habilidad']['algo'] | antecedentes['tecnologia_habilidad']['desinteresado']) &
-        (antecedentes['expresion_artistica']['algo'] | antecedentes['expresion_artistica']['desinteresado']) &
-        (antecedentes['aprendizaje']['algo'] | antecedentes['aprendizaje']['desinteresado']) &
-        (antecedentes['desconectar']['algo'] | antecedentes['desconectar']['desinteresado']) &
-        (antecedentes['aprender_nueva_habilidad']['algo'] | antecedentes['aprender_nueva_habilidad']['desinteresado']),
-        consecuencias['fotografia']['bajo']
-    ),
-    
-    ############# DEBATE ############
-    ctrl.Rule(
-        (antecedentes['autoexpresion']['interesado'] | antecedentes['autoexpresion']['mucho']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho']) &
-        (antecedentes['debates']['interesado'] | antecedentes['debates']['mucho']) &
-        (antecedentes['compartir_ideas']['interesado'] | antecedentes['compartir_ideas']['mucho']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho']) &
-        (antecedentes['aprendizaje']['interesado'] | antecedentes['aprendizaje']['mucho']) &
-        (antecedentes['autoexpresion_valor']['interesado'] | antecedentes['autoexpresion_valor']['mucho']) &
-        (antecedentes['desconectar']['interesado'] | antecedentes['desconectar']['mucho']) &
-        (antecedentes['aprender_nueva_habilidad']['algo'] | antecedentes['aprender_nueva_habilidad']['desinteresado']) &
-        (antecedentes['crecimiento_personal']['algo'] | antecedentes['crecimiento_personal']['desinteresado']),
-        consecuencias['debate']['alto']
-    ),
-    
-    ctrl.Rule(
-        (antecedentes['autoexpresion']['interesado'] | antecedentes['autoexpresion']['mucho'] | antecedentes['autoexpresion']['moderado'] | antecedentes['autoexpresion']['algo']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho'] | antecedentes['competitividad']['moderado'] | antecedentes['competitividad']['algo']) &
-        (antecedentes['debates']['interesado'] | antecedentes['debates']['mucho'] | antecedentes['debates']['moderado'] | antecedentes['debates']['algo']) &
-        (antecedentes['compartir_ideas']['interesado'] | antecedentes['compartir_ideas']['mucho'] | antecedentes['compartir_ideas']['moderado'] | antecedentes['compartir_ideas']['algo']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho'] | antecedentes['competir']['moderado'] | antecedentes['competir']['algo']) &
-        (antecedentes['aprendizaje']['interesado'] | antecedentes['aprendizaje']['mucho'] | antecedentes['aprendizaje']['moderado'] | antecedentes['aprendizaje']['algo']) &
-        (antecedentes['autoexpresion_valor']['interesado'] | antecedentes['autoexpresion_valor']['mucho'] | antecedentes['autoexpresion_valor']['moderado'] | antecedentes['autoexpresion_valor']['algo']) &
-        (antecedentes['desconectar']['interesado'] | antecedentes['desconectar']['mucho'] | antecedentes['desconectar']['moderado'] | antecedentes['desconectar']['algo']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho'] | antecedentes['aprender_nueva_habilidad']['moderado'] | antecedentes['aprender_nueva_habilidad']['algo']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho'] | antecedentes['crecimiento_personal']['moderado'] | antecedentes['crecimiento_personal']['algo']),
-        consecuencias['debate']['medio']
-    ),
-        
-    ctrl.Rule(
-        (antecedentes['autoexpresion']['algo'] | antecedentes['autoexpresion']['desinteresado']) &
-        (antecedentes['competitividad']['algo'] | antecedentes['competitividad']['desinteresado']) &
-        (antecedentes['debates']['algo'] | antecedentes['debates']['desinteresado']) &
-        (antecedentes['compartir_ideas']['algo'] | antecedentes['compartir_ideas']['desinteresado']) &
-        (antecedentes['competir']['algo'] | antecedentes['competir']['desinteresado']) &
-        (antecedentes['aprendizaje']['algo'] | antecedentes['aprendizaje']['desinteresado']) &
-        (antecedentes['autoexpresion_valor']['algo'] | antecedentes['autoexpresion_valor']['desinteresado']) &
-        (antecedentes['desconectar']['algo'] | antecedentes['desconectar']['desinteresado']) &
-        (antecedentes['aprender_nueva_habilidad']['algo'] | antecedentes['aprender_nueva_habilidad']['desinteresado']) &
-        (antecedentes['crecimiento_personal']['algo'] | antecedentes['crecimiento_personal']['desinteresado']),
-        consecuencias['debate']['bajo']
-    ),
-    
-    ############# CIENCIA_TECNOLOGIA ############
-    ctrl.Rule(
-        (antecedentes['ciencia']['interesado'] | antecedentes['ciencia']['mucho']) &
-        (antecedentes['tecnologia']['interesado'] | antecedentes['tecnologia']['mucho']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho']) &
-        (antecedentes['tecnologia_habilidad']['interesado'] | antecedentes['tecnologia_habilidad']['mucho']) &
-        (antecedentes['trabajo_equipo']['interesado'] | antecedentes['trabajo_equipo']['mucho']) &
-        (antecedentes['actividades_grupales']['interesado'] | antecedentes['actividades_grupales']['mucho']) &
-        (antecedentes['colaboracion']['interesado'] | antecedentes['colaboracion']['mucho']) &
-        (antecedentes['compartir_ideas']['interesado'] | antecedentes['compartir_ideas']['mucho']) &
-        (antecedentes['aprendizaje']['algo'] | antecedentes['aprendizaje']['desinteresado']) &
-        (antecedentes['aprender_nueva_habilidad']['algo'] | antecedentes['aprender_nueva_habilidad']['desinteresado']) &
-        (antecedentes['crecimiento_personal']['algo'] | antecedentes['crecimiento_personal']['desinteresado']),
-        consecuencias['ciencia_tecnologia']['alto']
-    ),
-    
-    ctrl.Rule(
-        (antecedentes['ciencia']['interesado'] | antecedentes['ciencia']['mucho'] | antecedentes['ciencia']['moderado'] | antecedentes['ciencia']['algo']) &
-        (antecedentes['tecnologia']['interesado'] | antecedentes['tecnologia']['mucho'] | antecedentes['tecnologia']['moderado'] | antecedentes['tecnologia']['algo']) &
-        (antecedentes['social']['interesado'] | antecedentes['social']['mucho'] | antecedentes['social']['moderado'] | antecedentes['social']['algo']) &
-        (antecedentes['tecnologia_habilidad']['interesado'] | antecedentes['tecnologia_habilidad']['mucho'] | antecedentes['tecnologia_habilidad']['moderado'] | antecedentes['tecnologia_habilidad']['algo']) &
-        (antecedentes['trabajo_equipo']['interesado'] | antecedentes['trabajo_equipo']['mucho'] | antecedentes['trabajo_equipo']['moderado'] | antecedentes['trabajo_equipo']['algo']) &
-        (antecedentes['actividades_grupales']['interesado'] | antecedentes['actividades_grupales']['mucho'] | antecedentes['actividades_grupales']['moderado'] | antecedentes['actividades_grupales']['algo']) &
-        (antecedentes['colaboracion']['interesado'] | antecedentes['colaboracion']['mucho'] | antecedentes['colaboracion']['moderado'] | antecedentes['colaboracion']['algo']) &
-        (antecedentes['compartir_ideas']['interesado'] | antecedentes['compartir_ideas']['mucho'] | antecedentes['compartir_ideas']['moderado'] | antecedentes['compartir_ideas']['algo']) &
-        (antecedentes['aprendizaje']['interesado'] | antecedentes['aprendizaje']['mucho'] | antecedentes['aprendizaje']['moderado'] | antecedentes['aprendizaje']['algo']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho'] | antecedentes['aprender_nueva_habilidad']['moderado'] | antecedentes['aprender_nueva_habilidad']['algo']) &
-        (antecedentes['crecimiento_personal']['interesado'] | antecedentes['crecimiento_personal']['mucho'] | antecedentes['crecimiento_personal']['moderado'] | antecedentes['crecimiento_personal']['algo']),
-        consecuencias['ciencia_tecnologia']['medio']
-    ),
-        
-    ctrl.Rule(
-        (antecedentes['ciencia']['algo'] | antecedentes['ciencia']['desinteresado']) &
-        (antecedentes['tecnologia']['algo'] | antecedentes['tecnologia']['desinteresado']) &
-        (antecedentes['social']['algo'] | antecedentes['social']['desinteresado']) &
-        (antecedentes['tecnologia_habilidad']['algo'] | antecedentes['tecnologia_habilidad']['desinteresado']) &
-        (antecedentes['trabajo_equipo']['algo'] | antecedentes['trabajo_equipo']['desinteresado']) &
-        (antecedentes['actividades_grupales']['algo'] | antecedentes['actividades_grupales']['desinteresado']) &
-        (antecedentes['colaboracion']['algo'] | antecedentes['colaboracion']['desinteresado']) &
-        (antecedentes['compartir_ideas']['algo'] | antecedentes['compartir_ideas']['desinteresado']) &
-        (antecedentes['aprendizaje']['algo'] | antecedentes['aprendizaje']['desinteresado']) &
-        (antecedentes['aprender_nueva_habilidad']['algo'] | antecedentes['aprender_nueva_habilidad']['desinteresado']) &
-        (antecedentes['crecimiento_personal']['algo'] | antecedentes['crecimiento_personal']['desinteresado']),
-        consecuencias['ciencia_tecnologia']['bajo']
-    ),
-    ############# AJEDREZ ############
-    ctrl.Rule(
-        (antecedentes['ciencia']['interesado'] | antecedentes['ciencia']['mucho']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho']) &
-        (antecedentes['resolucion_problemas']['interesado'] | antecedentes['resolucion_problemas']['mucho']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho']) &
-        (antecedentes['desconectar']['interesado'] | antecedentes['desconectar']['mucho']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho']),
+        (antecedentes['determinacion_motivacion']['interesado'] | antecedentes['determinacion_motivacion']['mucho']) &
+        (antecedentes['resiliencia']['interesado']              | antecedentes['resiliencia']['mucho']) &
+        (antecedentes['disciplina']['interesado']               | antecedentes['disciplina']['mucho']) &
+        (antecedentes['solucion_problemas']['interesado']       | antecedentes['solucion_problemas']['mucho']) &
+        (antecedentes['paciencia']['interesado']                | antecedentes['paciencia']['mucho']) &
+        (antecedentes['trabajo_individual']['interesado']       | antecedentes['trabajo_individual']['mucho']) &
+        (antecedentes['deporte_estrategia']['interesado']       | antecedentes['deporte_estrategia']['mucho']),
         consecuencias['ajedrez']['alto']
     ),
-    
     ctrl.Rule(
-        (antecedentes['ciencia']['interesado'] | antecedentes['ciencia']['mucho'] | antecedentes['ciencia']['moderado'] | antecedentes['ciencia']['algo']) &
-        (antecedentes['competitividad']['interesado'] | antecedentes['competitividad']['mucho'] | antecedentes['competitividad']['moderado'] | antecedentes['competitividad']['algo']) &
-        (antecedentes['resolucion_problemas']['interesado'] | antecedentes['resolucion_problemas']['mucho'] | antecedentes['resolucion_problemas']['moderado'] | antecedentes['resolucion_problemas']['algo']) &
-        (antecedentes['competir']['interesado'] | antecedentes['competir']['mucho'] | antecedentes['competir']['moderado'] | antecedentes['competir']['algo']) &
-        (antecedentes['desconectar']['interesado'] | antecedentes['desconectar']['mucho'] | antecedentes['desconectar']['moderado'] | antecedentes['desconectar']['algo']) &
-        (antecedentes['aprender_nueva_habilidad']['interesado'] | antecedentes['aprender_nueva_habilidad']['mucho'] | antecedentes['aprender_nueva_habilidad']['moderado'] | antecedentes['aprender_nueva_habilidad']['algo']),
+        (antecedentes['determinacion_motivacion']['moderado'] | antecedentes['determinacion_motivacion']['algo']) &
+        (antecedentes['resiliencia']['moderado']              | antecedentes['resiliencia']['algo']) &
+        (antecedentes['disciplina']['moderado']               | antecedentes['disciplina']['algo']) &
+        (antecedentes['solucion_problemas']['moderado']       | antecedentes['solucion_problemas']['algo']) &
+        (antecedentes['paciencia']['moderado']                | antecedentes['paciencia']['algo']) &
+        (antecedentes['trabajo_individual']['moderado']       | antecedentes['trabajo_individual']['algo']) &
+        (antecedentes['deporte_estrategia']['moderado']       | antecedentes['deporte_estrategia']['algo']),
         consecuencias['ajedrez']['medio']
     ),
-        
     ctrl.Rule(
-        (antecedentes['ciencia']['algo'] | antecedentes['ciencia']['desinteresado']) &
-        (antecedentes['competitividad']['algo'] | antecedentes['competitividad']['desinteresado']) &
-        (antecedentes['resolucion_problemas']['algo'] | antecedentes['resolucion_problemas']['desinteresado']) &
-        (antecedentes['competir']['algo'] | antecedentes['competir']['desinteresado']) &
-        (antecedentes['desconectar']['algo'] | antecedentes['desconectar']['desinteresado']) &
-        (antecedentes['aprender_nueva_habilidad']['algo'] | antecedentes['aprender_nueva_habilidad']['desinteresado']),
+        (antecedentes['determinacion_motivacion']['algo'] | antecedentes['determinacion_motivacion']['desinteresado']) &
+        (antecedentes['resiliencia']['algo']              | antecedentes['resiliencia']['desinteresado']) &
+        (antecedentes['disciplina']['algo']               | antecedentes['disciplina']['desinteresado']) &
+        (antecedentes['solucion_problemas']['algo']       | antecedentes['solucion_problemas']['desinteresado']) &
+        (antecedentes['paciencia']['algo']                | antecedentes['paciencia']['desinteresado']) &
+        (antecedentes['trabajo_individual']['algo']       | antecedentes['trabajo_individual']['desinteresado']) &
+        (antecedentes['deporte_estrategia']['algo']       | antecedentes['deporte_estrategia']['desinteresado']),
         consecuencias['ajedrez']['bajo']
     ),
-    ############# COCINA_GASTRONOMIA ############
+    ############# Musica ############
     ctrl.Rule(
-        (antecedentes['resolucion_problemas']['interesado'] | antecedentes['resolucion_problemas']['mucho']) &
-        (antecedentes['superar_limites']['interesado'] | antecedentes['superar_limites']['mucho']) &
-        (antecedentes['desconectar']['interesado'] | antecedentes['desconectar']['mucho']),
-        consecuencias['cocina_gastronomia']['alto']
+        (antecedentes['determinacion_motivacion']['interesado'] | antecedentes['determinacion_motivacion']['mucho']) &
+        (antecedentes['disciplina']['interesado']               | antecedentes['disciplina']['mucho']) &
+        (antecedentes['memorizacion']['interesado']             | antecedentes['memorizacion']['mucho']) &
+        (antecedentes['perfeccionismo']['interesado']           | antecedentes['perfeccionismo']['mucho']) &
+        (antecedentes['autoexpresion']['interesado']            | antecedentes['autoexpresion']['mucho']) &
+        (antecedentes['comunicacion']['interesado']             | antecedentes['comunicacion']['mucho']) &
+        (antecedentes['cooperacion']['interesado']              | antecedentes['cooperacion']['mucho']),
+        consecuencias['musica']['alto']
     ),
-    
     ctrl.Rule(
-        (antecedentes['resolucion_problemas']['interesado'] | antecedentes['resolucion_problemas']['mucho'] | antecedentes['resolucion_problemas']['moderado'] | antecedentes['resolucion_problemas']['algo']) &
-        (antecedentes['superar_limites']['interesado'] | antecedentes['superar_limites']['mucho'] | antecedentes['superar_limites']['moderado'] | antecedentes['superar_limites']['algo']) &
-        (antecedentes['desconectar']['interesado'] | antecedentes['desconectar']['mucho'] | antecedentes['desconectar']['moderado'] | antecedentes['desconectar']['algo']),
-        consecuencias['cocina_gastronomia']['medio']
+        (antecedentes['determinacion_motivacion']['moderado'] | antecedentes['determinacion_motivacion']['algo']) &
+        (antecedentes['disciplina']['moderado']               | antecedentes['disciplina']['algo']) &
+        (antecedentes['memorizacion']['moderado']             | antecedentes['memorizacion']['algo']) &
+        (antecedentes['perfeccionismo']['moderado']           | antecedentes['perfeccionismo']['algo']) &
+        (antecedentes['autoexpresion']['moderado']            | antecedentes['autoexpresion']['algo']) &
+        (antecedentes['comunicacion']['moderado']             | antecedentes['comunicacion']['algo']) &
+        (antecedentes['cooperacion']['moderado']              | antecedentes['cooperacion']['algo']),
+        consecuencias['musica']['medio']
     ),
-        
     ctrl.Rule(
-        (antecedentes['resolucion_problemas']['algo'] | antecedentes['resolucion_problemas']['desinteresado']) &
-        (antecedentes['superar_limites']['algo'] | antecedentes['superar_limites']['desinteresado']) &
-        (antecedentes['desconectar']['algo'] | antecedentes['desconectar']['desinteresado']),
-        consecuencias['cocina_gastronomia']['bajo']
+        (antecedentes['determinacion_motivacion']['algo'] | antecedentes['determinacion_motivacion']['desinteresado']) &
+        (antecedentes['disciplina']['algo']               | antecedentes['disciplina']['desinteresado']) &
+        (antecedentes['memorizacion']['algo']             | antecedentes['memorizacion']['desinteresado']) &
+        (antecedentes['perfeccionismo']['algo']           | antecedentes['perfeccionismo']['desinteresado']) &
+        (antecedentes['autoexpresion']['algo']            | antecedentes['autoexpresion']['desinteresado']) &
+        (antecedentes['comunicacion']['algo']             | antecedentes['comunicacion']['desinteresado']) &
+        (antecedentes['cooperacion']['algo']              | antecedentes['cooperacion']['desinteresado']),
+        consecuencias['musica']['bajo']
     ),
-    ############# ESCRITURA_CREATIVA ############
+    ############# Danza ############
     ctrl.Rule(
-        (antecedentes['creatividad']['interesado'] | antecedentes['creatividad']['mucho']) &
-        (antecedentes['independencia']['interesado'] | antecedentes['independencia']['mucho']) &
-        (antecedentes['creatividad_habilidad']['interesado'] | antecedentes['creatividad_habilidad']['mucho']) &
-        (antecedentes['autoexpresion_valor']['interesado'] | antecedentes['autoexpresion_valor']['mucho']) &
-        (antecedentes['desconectar']['interesado'] | antecedentes['desconectar']['mucho']) &
-        (antecedentes['creatividad_relajacion']['interesado'] | antecedentes['creatividad_relajacion']['mucho']),
+        (antecedentes['resistencia']['interesado']              | antecedentes['resistencia']['mucho']) &
+        (antecedentes['fuerza']['interesado']                   | antecedentes['fuerza']['mucho']) &
+        (antecedentes['agilidad']['interesado']                 | antecedentes['agilidad']['mucho']) &
+        (antecedentes['coordinacion_superior']['interesado']    | antecedentes['coordinacion_superior']['mucho']) &
+        (antecedentes['coordinacion_inferior']['interesado']    | antecedentes['coordinacion_inferior']['mucho']) &
+        (antecedentes['flexibilidad']['interesado']             | antecedentes['flexibilidad']['mucho']) &
+        (antecedentes['determinacion_motivacion']['interesado'] | antecedentes['determinacion_motivacion']['mucho']) &
+        (antecedentes['resiliencia']['interesado']              | antecedentes['resiliencia']['mucho']) &
+        (antecedentes['memorizacion']['interesado']             | antecedentes['memorizacion']['mucho']) &
+        (antecedentes['perfeccionismo']['interesado']           | antecedentes['perfeccionismo']['mucho']) &
+        (antecedentes['autoexpresion']['interesado']            | antecedentes['autoexpresion']['mucho']) &
+        (antecedentes['trabajo_equipo']['interesado']           | antecedentes['trabajo_equipo']['mucho']) &
+        (antecedentes['comunicacion']['interesado']             | antecedentes['comunicacion']['mucho']) &
+        (antecedentes['cooperacion']['interesado']              | antecedentes['cooperacion']['mucho']),
+        consecuencias['danza']['alto']
+    ),
+    ctrl.Rule(
+        (antecedentes['resistencia']['moderado']              | antecedentes['resistencia']['algo']) &
+        (antecedentes['fuerza']['moderado']                   | antecedentes['fuerza']['algo']) &
+        (antecedentes['agilidad']['moderado']                 | antecedentes['agilidad']['algo']) &
+        (antecedentes['coordinacion_superior']['moderado']    | antecedentes['coordinacion_superior']['algo']) &
+        (antecedentes['coordinacion_inferior']['moderado']    | antecedentes['coordinacion_inferior']['algo']) &
+        (antecedentes['flexibilidad']['moderado']             | antecedentes['flexibilidad']['algo']) &
+        (antecedentes['determinacion_motivacion']['moderado'] | antecedentes['determinacion_motivacion']['algo']) &
+        (antecedentes['resiliencia']['moderado']              | antecedentes['resiliencia']['algo']) &
+        (antecedentes['memorizacion']['moderado']             | antecedentes['memorizacion']['algo']) &
+        (antecedentes['perfeccionismo']['moderado']           | antecedentes['perfeccionismo']['algo']) &
+        (antecedentes['autoexpresion']['moderado']            | antecedentes['autoexpresion']['algo']) &
+        (antecedentes['trabajo_equipo']['moderado']           | antecedentes['trabajo_equipo']['algo']) &
+        (antecedentes['comunicacion']['moderado']             | antecedentes['comunicacion']['algo']) &
+        (antecedentes['cooperacion']['moderado']              | antecedentes['cooperacion']['algo']),
+        consecuencias['danza']['medio']
+    ),
+    ctrl.Rule(
+        (antecedentes['resistencia']['algo']              | antecedentes['resistencia']['desinteresado']) &
+        (antecedentes['fuerza']['algo']                   | antecedentes['fuerza']['desinteresado']) &
+        (antecedentes['agilidad']['algo']                 | antecedentes['agilidad']['desinteresado']) &
+        (antecedentes['coordinacion_superior']['algo']    | antecedentes['coordinacion_superior']['desinteresado']) &
+        (antecedentes['coordinacion_inferior']['algo']    | antecedentes['coordinacion_inferior']['desinteresado']) &
+        (antecedentes['flexibilidad']['algo']             | antecedentes['flexibilidad']['desinteresado']) &
+        (antecedentes['determinacion_motivacion']['algo'] | antecedentes['determinacion_motivacion']['desinteresado']) &
+        (antecedentes['resiliencia']['algo']              | antecedentes['resiliencia']['desinteresado']) &
+        (antecedentes['memorizacion']['algo']             | antecedentes['memorizacion']['desinteresado']) &
+        (antecedentes['perfeccionismo']['algo']           | antecedentes['perfeccionismo']['desinteresado']) &
+        (antecedentes['autoexpresion']['algo']            | antecedentes['autoexpresion']['desinteresado']) &
+        (antecedentes['trabajo_equipo']['algo']           | antecedentes['trabajo_equipo']['desinteresado']) &
+        (antecedentes['comunicacion']['algo']             | antecedentes['comunicacion']['desinteresado']) &
+        (antecedentes['cooperacion']['algo']              | antecedentes['cooperacion']['desinteresado']),
+        consecuencias['danza']['bajo']
+    ),
+    ############# Teatro ############
+    ctrl.Rule(
+        (antecedentes['resistencia']['interesado']              | antecedentes['resistencia']['mucho']) &
+        (antecedentes['agilidad']['interesado']                 | antecedentes['agilidad']['mucho']) &
+        (antecedentes['determinacion_motivacion']['interesado'] | antecedentes['determinacion_motivacion']['mucho']) &
+        (antecedentes['resiliencia']['interesado']              | antecedentes['resiliencia']['mucho']) &
+        (antecedentes['disciplina']['interesado']               | antecedentes['disciplina']['mucho']) &
+        (antecedentes['memorizacion']['interesado']             | antecedentes['memorizacion']['mucho']) &
+        (antecedentes['perfeccionismo']['interesado']           | antecedentes['perfeccionismo']['mucho']) &
+        (antecedentes['autoexpresion']['interesado']            | antecedentes['autoexpresion']['mucho']) &
+        (antecedentes['trabajo_equipo']['interesado']           | antecedentes['trabajo_equipo']['mucho']) &
+        (antecedentes['comunicacion']['interesado']             | antecedentes['comunicacion']['mucho']) &
+        (antecedentes['cooperacion']['interesado']              | antecedentes['cooperacion']['mucho']),
+        consecuencias['teatro']['alto']
+    ),
+    ctrl.Rule(
+        (antecedentes['resistencia']['moderado']              | antecedentes['resistencia']['algo']) &
+        (antecedentes['agilidad']['moderado']                 | antecedentes['agilidad']['algo']) &
+        (antecedentes['determinacion_motivacion']['moderado'] | antecedentes['determinacion_motivacion']['algo']) &
+        (antecedentes['resiliencia']['moderado']              | antecedentes['resiliencia']['algo']) &
+        (antecedentes['disciplina']['moderado']               | antecedentes['disciplina']['algo']) &
+        (antecedentes['memorizacion']['moderado']             | antecedentes['memorizacion']['algo']) &
+        (antecedentes['perfeccionismo']['moderado']           | antecedentes['perfeccionismo']['algo']) &
+        (antecedentes['autoexpresion']['moderado']            | antecedentes['autoexpresion']['algo']) &
+        (antecedentes['trabajo_equipo']['moderado']           | antecedentes['trabajo_equipo']['algo']) &
+        (antecedentes['comunicacion']['moderado']             | antecedentes['comunicacion']['algo']) &
+        (antecedentes['cooperacion']['moderado']              | antecedentes['cooperacion']['algo']),
+        consecuencias['teatro']['medio']
+    ),
+    ctrl.Rule(
+        (antecedentes['resistencia']['algo']              | antecedentes['resistencia']['desinteresado']) &
+        (antecedentes['agilidad']['algo']                 | antecedentes['agilidad']['desinteresado']) &
+        (antecedentes['determinacion_motivacion']['algo'] | antecedentes['determinacion_motivacion']['desinteresado']) &
+        (antecedentes['resiliencia']['algo']              | antecedentes['resiliencia']['desinteresado']) &
+        (antecedentes['disciplina']['algo']               | antecedentes['disciplina']['desinteresado']) &
+        (antecedentes['memorizacion']['algo']             | antecedentes['memorizacion']['desinteresado']) &
+        (antecedentes['perfeccionismo']['algo']           | antecedentes['perfeccionismo']['desinteresado']) &
+        (antecedentes['autoexpresion']['algo']            | antecedentes['autoexpresion']['desinteresado']) &
+        (antecedentes['trabajo_equipo']['algo']           | antecedentes['trabajo_equipo']['desinteresado']) &
+        (antecedentes['comunicacion']['algo']             | antecedentes['comunicacion']['desinteresado']) &
+        (antecedentes['cooperacion']['algo']              | antecedentes['cooperacion']['desinteresado']),
+        consecuencias['teatro']['bajo']
+    ),
+    ############# Escritura Creativa ############
+    ctrl.Rule(
+        (antecedentes['determinacion_motivacion']['interesado'] | antecedentes['determinacion_motivacion']['mucho']) &
+        (antecedentes['perseverancia']['interesado']            | antecedentes['perseverancia']['mucho']) &
+        (antecedentes['concentracion']['interesado']            | antecedentes['concentracion']['mucho']) &
+        (antecedentes['autoexpresion']['interesado']            | antecedentes['autoexpresion']['mucho']) &
+        (antecedentes['trabajo_individual']['interesado']       | antecedentes['trabajo_individual']['mucho']),
         consecuencias['escritura_creativa']['alto']
     ),
-    
     ctrl.Rule(
-        (antecedentes['creatividad']['interesado'] | antecedentes['creatividad']['mucho'] | antecedentes['creatividad']['moderado'] | antecedentes['creatividad']['algo']) &
-        (antecedentes['independencia']['interesado'] | antecedentes['independencia']['mucho'] | antecedentes['independencia']['moderado'] | antecedentes['independencia']['algo']) &
-        (antecedentes['creatividad_habilidad']['interesado'] | antecedentes['creatividad_habilidad']['mucho'] | antecedentes['creatividad_habilidad']['moderado'] | antecedentes['creatividad_habilidad']['algo']) &
-        (antecedentes['autoexpresion_valor']['interesado'] | antecedentes['autoexpresion_valor']['mucho'] | antecedentes['autoexpresion_valor']['moderado'] | antecedentes['autoexpresion_valor']['algo']) &
-        (antecedentes['desconectar']['interesado'] | antecedentes['desconectar']['mucho'] | antecedentes['desconectar']['moderado'] | antecedentes['desconectar']['algo']) &
-        (antecedentes['creatividad_relajacion']['interesado'] | antecedentes['creatividad_relajacion']['mucho'] | antecedentes['creatividad_relajacion']['moderado'] | antecedentes['creatividad_relajacion']['algo']),
+        (antecedentes['determinacion_motivacion']['moderado'] | antecedentes['determinacion_motivacion']['algo']) &
+        (antecedentes['perseverancia']['moderado']            | antecedentes['perseverancia']['algo']) &
+        (antecedentes['concentracion']['moderado']            | antecedentes['concentracion']['algo']) &
+        (antecedentes['autoexpresion']['moderado']            | antecedentes['autoexpresion']['algo']) &
+        (antecedentes['trabajo_individual']['moderado']       | antecedentes['trabajo_individual']['algo']),
         consecuencias['escritura_creativa']['medio']
     ),
-        
     ctrl.Rule(
-        (antecedentes['creatividad']['algo'] | antecedentes['creatividad']['desinteresado']) &
-        (antecedentes['independencia']['algo'] | antecedentes['independencia']['desinteresado']) &
-        (antecedentes['creatividad_habilidad']['algo'] | antecedentes['creatividad_habilidad']['desinteresado']) &
-        (antecedentes['autoexpresion_valor']['algo'] | antecedentes['autoexpresion_valor']['desinteresado']) &
-        (antecedentes['desconectar']['algo'] | antecedentes['desconectar']['desinteresado']) &
-        (antecedentes['creatividad_relajacion']['algo'] | antecedentes['creatividad_relajacion']['desinteresado']),
+        (antecedentes['determinacion_motivacion']['algo'] | antecedentes['determinacion_motivacion']['desinteresado']) &
+        (antecedentes['perseverancia']['algo']            | antecedentes['perseverancia']['desinteresado']) &
+        (antecedentes['concentracion']['algo']            | antecedentes['concentracion']['desinteresado']) &
+        (antecedentes['autoexpresion']['algo']            | antecedentes['autoexpresion']['desinteresado']) &
+        (antecedentes['trabajo_individual']['algo']       | antecedentes['trabajo_individual']['desinteresado']),
         consecuencias['escritura_creativa']['bajo']
     )
 ]
-
-# Crear el sistema de control difuso y su simulador
-# 1. Crear un sistema de control basado en las reglas definidas.
-sistema_control = ctrl.ControlSystem(reglas)
-# 2. Crear un simulador del sistema de control para procesar las entradas y generar las salidas.
-sistema_simulador  = ctrl.ControlSystemSimulation(sistema_control)
 
 def recomendar_actividad(respuestas):
     """
@@ -746,6 +586,13 @@ def recomendar_actividad(respuestas):
     2. Ejecuta la simulación para calcular las recomendaciones.
     3. Devuelve un diccionario con las recomendaciones para cada actividad.
     """
+
+    # Crear el sistema de control difuso y su simulador
+    # 1. Crear un sistema de control basado en las reglas definidas.
+    sistema_control = ctrl.ControlSystem(reglas)
+    # 2. Crear un simulador del sistema de control para procesar las entradas y generar las salidas.
+    sistema_simulador  = ctrl.ControlSystemSimulation(sistema_control)
+
     for key, valor in respuestas.items():
         sistema_simulador.input[key] = valor
     sistema_simulador.compute()
@@ -769,43 +616,35 @@ def mostrar_respuesta(recomedaciones):
         print(f"{Actividad}: {nivel_recomendacion}")
 
 
-respuestas_usuario = {
-    'deportes' : 4,
-    'artes' : 4,
-    'ciencia' : 4,
-    'tecnologia' : 5,
-    'creatividad' : 5,
-    'social' : 5,
-    #'liderazgo' : 0,
-    'autoexpresion' : 5,
-    'competitividad' : 5,
-    'independencia' : 5,
-    'coordinacion' : 4,
-    'creatividad_habilidad' : 4,
-    'tecnologia_habilidad' : 5,
-    'resolucion_problemas' : 4,
-    'expresion_artistica' : 5,
-    'trabajo_equipo' : 4,
-    'debates' : 4,
-    'actividades_grupales' : 4,
-    'colaboracion' : 5,
-    'compartir_ideas' : 5,
-    'competir' : 5,
-    'aprendizaje' : 5,
-    #'ayudar' : 0,
-    'autoexpresion_valor' : 4,
-    'superar_limites' : 4,
-    #'relajacion' : 0,
-    'liberar_energia' : 4,
-    'desconectar' : 4,
-    'creatividad_relajacion' : 5,
-    'deportes_relajacion' : 5,
-    'mejorar_habilidades' : 4,
-    'desarrollo_liderazgo' : 5,
-    'equilibrio_salud' : 4,
-    'aprender_nueva_habilidad' : 4,
-    'crecimiento_personal' : 5
-}
+# respuestas_usuario = {
+#     "resistencia" : 3,
+#     "velocidad" : 3,
+#     "fuerza" : 3,
+#     "agilidad" : 3,
+#     "coordinacion_superior" : 3,
+#     "coordinacion_inferior" : 3,
+#     "flexibilidad" : 3,
+#     "determinacion_motivacion" : 3,
+#     "resiliencia" : 3,
+#     "disciplina" : 3,
+#     "liderazgo" : 3,
+#     "responsabilidad" : 3,
+#     "solucion_problemas" : 3,
+#     "autocontrol" : 3,
+#     "equilibrio_fisica_mental" : 3,
+#     "paciencia" : 3,
+#     "memorizacion" : 3,
+#     "perfeccionismo" : 3,
+#     "perseverancia" : 3,
+#     "concentracion" : 3,
+#     "autoexpresion" : 3,
+#     "trabajo_equipo" : 3,
+#     "comunicacion" : 3,
+#     "cooperacion" : 3,
+#     "trabajo_individual" : 3,
+#     "deporte_contacto" : 3,
+#     "deporte_estrategia" : 3,
+# }
 
-actividad_recomendada = recomendar_actividad(respuestas_usuario)
-mostrar_respuesta(actividad_recomendada)
+# actividad_recomendada = recomendar_actividad(respuestas_usuario)
+# mostrar_respuesta(actividad_recomendada)
