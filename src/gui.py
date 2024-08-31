@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 from tkinter import Tk, Canvas, Button, PhotoImage, StringVar, ttk
-from PIL import Image, ImageTk
+from SystemFuzzy import recomendar_actividad, mostrar_respuesta
 
 OUTPUT_PATH = Path(__file__).parent
 
@@ -318,6 +318,9 @@ class CuestionarioApp:
 
             self.respuesta_usuario.append(self.alternativa_seleccionada.get())
 
+            # limpia la alternativa seleccionada en los radiobutton
+            self.alternativa_seleccionada.set("")
+
             self.respuesta_actividad = self.canvas.create_text(
                 505.0, 340.0,
                 text="¡Gracias por enviar tus respuestas!",
@@ -325,6 +328,40 @@ class CuestionarioApp:
                 font=("Inter", 24 * -1, 'bold'),
                 anchor="center"
             )
+
+            ##### solo para el ejemplo
+            respuestas_usuario = {
+                "resistencia" : 3,
+                "velocidad" : 3,
+                "fuerza" : 3,
+                "agilidad" : 3,
+                "coordinacion_superior" : 3,
+                "coordinacion_inferior" : 3,
+                "flexibilidad" : 3,
+                "determinacion_motivacion" : 3,
+                "resiliencia" : 3,
+                "disciplina" : 3,
+                "liderazgo" : 3,
+                "responsabilidad" : 3,
+                "solucion_problemas" : 3,
+                "autocontrol" : 3,
+                "equilibrio_fisica_mental" : 3,
+                "paciencia" : 3,
+                "memorizacion" : 3,
+                "perfeccionismo" : 3,
+                "perseverancia" : 3,
+                "concentracion" : 3,
+                "autoexpresion" : 3,
+                "trabajo_equipo" : 3,
+                "comunicacion" : 3,
+                "cooperacion" : 3,
+                "trabajo_individual" : 3,
+                "deporte_contacto" : 3,
+                "deporte_estrategia" : 3,
+            }
+            
+            actividad_recomendada = recomendar_actividad(respuestas_usuario)
+            mostrar_respuesta(actividad_recomendada)
 
             print(len(self.respuesta_usuario), self.index_respuesta)
             print(self.respuesta_usuario)
