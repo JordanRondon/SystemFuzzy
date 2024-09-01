@@ -1,18 +1,11 @@
 from pathlib import Path
-import json
 from tkinter import Tk, Canvas, Button, PhotoImage, StringVar, ttk
-from SystemFuzzy import recomendar_actividad, mostrar_respuesta
+from SystemFuzzy import obtener_datos_json, recomendar_actividad, mostrar_respuesta
 
 OUTPUT_PATH = Path(__file__).parent
 
 ASSETS_PATH = OUTPUT_PATH / Path('../assets')
 ASSETS_PATH_IMAGEN = OUTPUT_PATH / Path('../assets/imagenes')
-
-def obtener_datos_json(nombre: str):
-    with open('data/preguntas.json', 'r', encoding='utf-8') as file:
-        contenido_json = json.load(file)
-    datos_extraidos = contenido_json[nombre]
-    return datos_extraidos
 
 def relative_to_assets_datas(path: str, assets_path: str) -> Path:
     return assets_path / Path(path)
@@ -24,10 +17,10 @@ class CuestionarioApp:
         self.root.configure(bg="#82C0CC")
 
         # Preguntas a mostrar en el cuestionario
-        self.preguntas = obtener_datos_json("preguntas")
+        self.preguntas = obtener_datos_json("preguntas_formulario")
         self.index_pregunta = 0
 
-        self.imagenes = obtener_datos_json('imagenes')
+        self.imagenes = obtener_datos_json('imagenes_formulario')
         self.index_imagenes = 0
 
         self.respuesta_usuario = []
@@ -243,11 +236,12 @@ class CuestionarioApp:
             if len(self.respuesta_usuario) >= self.index_respuesta:
                 self.respuesta_usuario[self.index_respuesta-1] = self.alternativa_seleccionada.get()
             
-            self.alternativa_seleccionada.set("")
-
-            print(len(self.respuesta_usuario), self.index_respuesta)
+            print(f"TOTAL RESPUESTAS: {len(self.respuesta_usuario)}")
+            print(f"POSICION ACTUAL: {self.index_respuesta}")
             print(self.respuesta_usuario)
-            print(self.alternativa_seleccionada.get())
+            print(f"ALTERNATIVA SELECCIONADA: {self.alternativa_seleccionada.get()}\n")
+
+            self.alternativa_seleccionada.set("")
             
             self.actualizar_pregunta()
 
@@ -256,7 +250,6 @@ class CuestionarioApp:
             self.btn_siguiente.place_forget()
             self.btn_enviar.place(x=420.0, y=595.0, width=156.0, height=38.0)
 
-
     def anterior_pregunta(self):
         """Muestra la pregunta anterior si existe."""
         if self.index_pregunta > 0:
@@ -264,15 +257,15 @@ class CuestionarioApp:
             self.index_respuesta -= 1
             self.actualizar_pregunta()
 
-            print(len(self.respuesta_usuario), self.index_respuesta)
+            print(f"TOTAL RESPUESTAS: {len(self.respuesta_usuario)}")
+            print(f"POSICION ACTUAL: {self.index_respuesta}")
             print(self.respuesta_usuario)
-            print(self.respuesta_usuario[self.index_respuesta])
+            print(f"ALTERNATIVA SELECCIONADA: {self.respuesta_usuario[self.index_respuesta]}\n")
 
         # validacion para deshabilitar el boton enviar antes de la ultima pregunta
         if self.index_pregunta != len(self.preguntas) - 1:
             self.btn_enviar.place_forget()
             self.btn_siguiente.place(x=615.0, y=595.0, width=156.0, height=38.0)
-
 
     def ocultar_preguntas(self):
         self.canvas.itemconfig(self.contenedor_marco_contador, state="hidden")
@@ -306,8 +299,26 @@ class CuestionarioApp:
         self.canvas.itemconfig(self.contenedor_Mucho, state="normal")
         self.canvas.itemconfig(self.contenedor_Interesado, state="normal")
 
+    def asignar_puntajes_psicologicos(self, variables_psicologica, grado_interes):
+        """
+        Asigna puntajes a las variables psicológicas en un diccionario.
+
+        :param variables_psicologica: Arreglo de variables psicológicas.
+        :param grado_interes: Arreglo de puntajes en la escala de Likert correspondientes a cada variable.
+        :return: Diccionario con las variables como claves y los puntajes como valores.
+        """
+        if len(variables_psicologica) != len(grado_interes):
+            raise ValueError("El número de variables debe coincidir con el número de puntajes")
+        
+        # Crear un diccionario uniendo las variables con sus puntajes
+        psicologico_grado_interes = {}
+        for index, variable in enumerate(variables_psicologica):
+            interes = grado_interes[index]
+            psicologico_grado_interes[variable] = self.alternativas.index(interes) + 1
+        
+        return psicologico_grado_interes
+
     def enviar_respuestas(self):
-        """Envía las respuestas (simulado aquí)."""
         if(self.alternativa_seleccionada.get() != ''):
             self.ocultar_preguntas()
 
@@ -318,57 +329,41 @@ class CuestionarioApp:
 
             self.respuesta_usuario.append(self.alternativa_seleccionada.get())
 
+            variable_psicologica = obtener_datos_json("caracteristica_psicologica")
+
+            respuestas = self.asignar_puntajes_psicologicos(variable_psicologica, self.respuesta_usuario)
+
+            print(f"TOTAL RESPUESTAS: {len(self.respuesta_usuario)}")
+            print(f"POSICION ACTUAL: {self.index_respuesta}")
+            print(self.respuesta_usuario)
+            print(f"ALTERNATIVA SELECCIONADA: {self.alternativa_seleccionada.get()}\n")
+            print(f"TOTAL DE RESPUESTAS CONTESTADAS: {len(respuestas)}")
+            print(f"RESPUESTAS DE USUARIO: {respuestas}")
+
+            print("Respuestas enviadas\n")
+
             # limpia la alternativa seleccionada en los radiobutton
             self.alternativa_seleccionada.set("")
 
-            self.respuesta_actividad = self.canvas.create_text(
-                505.0, 340.0,
-                text="¡Gracias por enviar tus respuestas!",
+            actividad_recomendada = recomendar_actividad(respuestas)
+            recomendacion = mostrar_respuesta(actividad_recomendada)
+            print(recomendacion)
+
+            self.titulo_respuesta_actividad = self.canvas.create_text(
+                475.0, 170.0,
+                text="ACTIVIDADES RECOMENDADAS",
                 fill="#FFFFFF",
                 font=("Inter", 24 * -1, 'bold'),
                 anchor="center"
             )
 
-            ##### solo para el ejemplo
-            respuestas_usuario = {
-                "resistencia" : 3,
-                "velocidad" : 3,
-                "fuerza" : 3,
-                "agilidad" : 3,
-                "coordinacion_superior" : 3,
-                "coordinacion_inferior" : 3,
-                "flexibilidad" : 3,
-                "determinacion_motivacion" : 3,
-                "resiliencia" : 3,
-                "disciplina" : 3,
-                "liderazgo" : 3,
-                "responsabilidad" : 3,
-                "solucion_problemas" : 3,
-                "autocontrol" : 3,
-                "equilibrio_fisica_mental" : 3,
-                "paciencia" : 3,
-                "memorizacion" : 3,
-                "perfeccionismo" : 3,
-                "perseverancia" : 3,
-                "concentracion" : 3,
-                "autoexpresion" : 3,
-                "trabajo_equipo" : 3,
-                "comunicacion" : 3,
-                "cooperacion" : 3,
-                "trabajo_individual" : 3,
-                "deporte_contacto" : 3,
-                "deporte_estrategia" : 3,
-            }
-            
-            actividad_recomendada = recomendar_actividad(respuestas_usuario)
-            mostrar_respuesta(actividad_recomendada)
-
-            print(len(self.respuesta_usuario), self.index_respuesta)
-            print(self.respuesta_usuario)
-            print(self.alternativa_seleccionada.get())
-
-            print("Respuestas enviadas")
-        
+            self.respuesta_actividad = self.canvas.create_text(
+                505.0, 375.0,
+                text=recomendacion,
+                fill="#FFFFFF",
+                font=("Inter", 24 * -1, 'bold'),
+                anchor="center"
+            )
         else:
             print("INCOMPLETO")
 

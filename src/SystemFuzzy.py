@@ -1,38 +1,16 @@
+import json
 import numpy as np
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
-import matplotlib.pyplot as plt
+
+def obtener_datos_json(nombre: str):
+    with open('data/preguntas.json', 'r', encoding='utf-8') as file:
+        contenido_json = json.load(file)
+    datos_extraidos = contenido_json[nombre]
+    return datos_extraidos
 
 ##### Definición de las variables difusas para cada pregunta del cuestionario #####
-variable_psicologica = [
-    "resistencia",              #¿Te interesa participar en actividades que requieren mantener un esfuerzo físico durante largos periodos?                              
-    "velocidad",                #¿Te interesan las actividades donde la rapidez y la capacidad de reacción son clave para el éxito?                            
-    "fuerza",                   #¿Te interesan los deportes o actividades que implican el uso de potencia muscular y fuerza física?                           
-    "agilidad",                 #¿Te interesa participar en actividades que requieren moverse con rapidez y destreza?                             
-    "coordinacion_superior",    #¿Te interesa realizar actividades que requieren coordinación precisa de tus brazos y manos?                            
-    "coordinacion_inferior",    #¿Te interesa realizar actividades que requieren coordinación precisa de tus piernas y pies?                            
-    "flexibilidad",             #¿Te interesa participar en actividades que requieren una gran flexibilidad y elasticidad en tu cuerpo?                             
-    "determinacion_motivacion", #¿Te interesa participar en actividades que requieren alta determinación y motivación constante?                             
-    "resiliencia",              #¿Te interesan las actividades que ponen a prueba tu capacidad para sobreponerse a dificultades y seguir adelante?                              
-    "disciplina",               #¿Disfrutas de actividades que requieren un alto nivel de compromiso y disciplina personal?                           
-    "liderazgo",                #¿Te interesa participar en actividades que te permiten asumir roles de liderazgo y guiar a otros?                            
-    "responsabilidad",          #¿Te atraen actividades que implican asumir riesgos, responsabilidades y cumplir compromisos?                              
-    "solucion_problemas",       #¿Te interesa involucrarte en actividades que requieren resolver problemas complejos y encontrar soluciones creativas?                           
-    "autocontrol",              #¿Te interesan las actividades que te obligan a controlar tus emociones y mantener la calma en situaciones difíciles?                              
-    "equilibrio_fisica_mental", #¿Te gustan las actividades que promueven un estilo de vida saludable tanto física como mentalmente?                             
-    "paciencia",                #¿Te interesan las actividades que requieren esperar y trabajar con calma para ver resultados?                            
-    "memorizacion",             #¿Te gusta aprender y recordar cosas nuevas, como letras de canciones, pasos de baile, o datos importantes?                             
-    "perfeccionismo",           #¿Te gusta hacer las cosas lo mejor posible, incluso si eso significa dedicarles más tiempo?                           
-    "perseverancia",            #¿Te interesan las actividades que requieran seguir adelante a pesar de los obstáculos para alcanzar tus metas?                            
-    "concentracion",            #¿Te gusta hacer actividades donde necesitas estar muy concentrado y enfocado para hacerlo bien?                            
-    "autoexpresion",            #¿Te interesan las actividades que te permiten expresar tus emociones y pensamientos?                            
-    "trabajo_equipo",           #¿Disfrutas de actividades donde es importante trabajar en equipo y colaborar con otros?                           
-    "comunicacion",             #¿Te interesa compartir tus ideas y escuchar a los demás en actividades de grupo?                             
-    "cooperacion",              #¿Te gusta ayudar y trabajar bien con otros para completar tareas o proyectos?                           
-    "trabajo_individual",       #¿Te sientes más cómodo realizando actividades en las que dependen principalmente de tus propias habilidades y esfuerzos?                         
-    "deporte_contacto",         #¿Te sientes cómodo participando en actividades que implican contacto físico con otros?                      
-    "deporte_estrategia"        #¿Te interesan las actividades donde la planificación y la estrategia juegan un papel clave en el éxito?                           
-]
+variable_psicologica = obtener_datos_json("caracteristica_psicologica")
 
 # Creación de antecedentes para el sistema difuso.
 # Un 'Antecedent' representa una variable de entrada en el sistema difuso.
@@ -41,19 +19,7 @@ antecedentes = {variable: ctrl.Antecedent(np.arange(0, 5), variable) for variabl
 
 
 # Definición de las variables difusas para cada variable de salida
-actividad_extracurricular = [
-    'futbol',			
-    'voley',			
-    'baloncesto',			
-    'natacion',			
-    'artes_marciales',			
-    'ciclismo',			
-    'ajedrez',			
-    'musica',			
-    'danza',			
-    'teatro',			
-    'escritura_creativa'
-]
+actividad_extracurricular = obtener_datos_json("actividades")
 
 # Creación de consecuencias para el sistema difuso.
 # Un 'Consequent' representa una variable de salida en el sistema difuso.
@@ -612,39 +578,9 @@ def mostrar_respuesta(recomedaciones):
     Parámetros:
     recomendaciones (dict): Diccionario con actividades como claves y niveles de recomendación como valores.
     """
+    respuesta = ""
+
     for Actividad, nivel_recomendacion in recomedaciones.items():
-        print(f"{Actividad}: {nivel_recomendacion}")
+        respuesta += f"{Actividad}: {nivel_recomendacion}\n"
 
-
-# respuestas_usuario = {
-#     "resistencia" : 3,
-#     "velocidad" : 3,
-#     "fuerza" : 3,
-#     "agilidad" : 3,
-#     "coordinacion_superior" : 3,
-#     "coordinacion_inferior" : 3,
-#     "flexibilidad" : 3,
-#     "determinacion_motivacion" : 3,
-#     "resiliencia" : 3,
-#     "disciplina" : 3,
-#     "liderazgo" : 3,
-#     "responsabilidad" : 3,
-#     "solucion_problemas" : 3,
-#     "autocontrol" : 3,
-#     "equilibrio_fisica_mental" : 3,
-#     "paciencia" : 3,
-#     "memorizacion" : 3,
-#     "perfeccionismo" : 3,
-#     "perseverancia" : 3,
-#     "concentracion" : 3,
-#     "autoexpresion" : 3,
-#     "trabajo_equipo" : 3,
-#     "comunicacion" : 3,
-#     "cooperacion" : 3,
-#     "trabajo_individual" : 3,
-#     "deporte_contacto" : 3,
-#     "deporte_estrategia" : 3,
-# }
-
-# actividad_recomendada = recomendar_actividad(respuestas_usuario)
-# mostrar_respuesta(actividad_recomendada)
+    return respuesta
