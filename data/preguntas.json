@@ -1,5 +1,5 @@
 {
-    "preguntas": [
+    "preguntas_formulario": [
         "¿Te interesa participar en actividades que requieren mantener un esfuerzo físico durante largos periodos?",
         "¿Te interesan las actividades donde la rapidez y la capacidad de reacción son clave para el éxito?",
         "¿Te interesan los deportes o actividades que implican el uso de potencia muscular y fuerza física?",
@@ -28,7 +28,36 @@
         "¿Te sientes cómodo participando en actividades que implican contacto físico con otros?",
         "¿Te interesan las actividades donde la planificación y la estrategia juegan un papel clave en el éxito?"
     ],
-    "imagenes": [
+    "caracteristica_psicologica": [
+        "resistencia",
+        "velocidad",
+        "fuerza",
+        "agilidad",
+        "coordinacion_superior",
+        "coordinacion_inferior",
+        "flexibilidad",
+        "determinacion_motivacion",
+        "resiliencia",
+        "disciplina",
+        "liderazgo",
+        "responsabilidad",
+        "solucion_problemas",
+        "autocontrol",
+        "equilibrio_fisica_mental",
+        "paciencia",
+        "memorizacion",
+        "perfeccionismo",
+        "perseverancia",
+        "concentracion",
+        "autoexpresion",
+        "trabajo_equipo",
+        "comunicacion",
+        "cooperacion",
+        "trabajo_individual",
+        "deporte_contacto",
+        "deporte_estrategia"
+    ],
+    "imagenes_formulario": [
         "Resistencia.png",
         "Velocidad.png",
         "Fuerza.png",
@@ -56,5 +85,18 @@
         "Trabajo_individual.png",
         "Deporte_contacto.png",
         "Deporte_estrategia.png"
+    ],
+    "actividades": [
+        "futbol",			
+        "voley",			
+        "baloncesto",			
+        "natacion",			
+        "artes_marciales",			
+        "ciclismo",			
+        "ajedrez",			
+        "musica",			
+        "danza",			
+        "teatro",			
+        "escritura_creativa"
     ]
 }
