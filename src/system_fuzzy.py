@@ -1,13 +1,21 @@
+import json
 import numpy as np
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
 from itertools import combinations
 import math
 
+def obtener_datos_json(nombre: str):
+    with open('data/preguntas.json', 'r', encoding='utf-8') as file:
+        contenido_json = json.load(file)
+    datos_extraidos = contenido_json[nombre]
+    return datos_extraidos
+
 class System_expert_fuzzy():
-    def __init__(self ,nombre_actividad, caracteristicas_psicologicas):
+    def __init__(self, actividad, caracteristicas_psicologicas):
         self.caracteristicas = caracteristicas_psicologicas
-        self.actividad = nombre_actividad
+        self.actividades = actividad
+        self.index_actividad = 0
         self.antecedentes_difusos = {}
         self.consecuente_difuso = {}
         self.reglas_difusas = []
@@ -25,7 +33,7 @@ class System_expert_fuzzy():
 
     def crear_consecuente_difusos(self):
         # Crear el consecuente difuso para la actividad
-        self.consecuente_difuso = ctrl.Consequent(np.arange(1, 4, 1), self.actividad)
+        self.consecuente_difuso = ctrl.Consequent(np.arange(1, 4, 1), self.actividades)
 
         # Definir los conjuntos difusos para el consecuente
         self.consecuente_difuso['bajo'] = fuzz.trimf(self.consecuente_difuso.universe, [1, 1, 2])
@@ -38,39 +46,57 @@ class System_expert_fuzzy():
         self.crear_consecuente_difusos()
 
         # Cálculo de Combinaciones de Características
-        conjunto_maximo_caracteristicas_bajas = math.ceil(len(self.caracteristicas) / 2)
-        combinaciones_bajas = list(combinations(self.caracteristicas, conjunto_maximo_caracteristicas_bajas))
+        # conjunto_maximo_caracteristicas_bajas = math.ceil(len(self.caracteristicas) / 2)
+        combinaciones_bajas = list(combinations(self.caracteristicas, 2))
         #Aquí se determina cuántas características mínimas se deben combinar para formar reglas. Se calcula la mitad del número total de características y se genera una lista de todas las combinaciones posibles de esas características.
 
-        condicion_baja = None
+        # condicion_baja = None
 
-        # Se itera sobre cada combinación de características en la lista combinaciones_bajas. 
-        # Cada combinacion es una tupla que contiene un subconjunto de características
-        # Ejemplo: Supongamos que combinaciones_bajas tiene las combinaciones [('A', 'B'), ('C', 'D')]. El primer combinacion en el bucle podría ser ('A', 'B').
-        for combinacion in combinaciones_bajas:
-            # Se establece condicion_actual con el valor de la condición 'bajo' del primer antecedente en la combinación actual.
-            # Ejemplo: Si la combinación es ('A', 'B'), entonces condicion_actual se inicializa con el valor de self.antecedentes_difusos['A']['bajo'].
-            condicion_actual = self.antecedentes_difusos[combinacion[0]]['bajo']
-            for antecedente in combinacion[1:]:
-                condicion_actual &= self.antecedentes_difusos[antecedente]['bajo']
-            # Para cada antecedente adicional en la combinación, se actualiza condicion_actual combinando la condición 'bajo' del antecedente con condicion_actual usando la operación lógica AND (&)
-            # Ejemplo: Si la combinación es ('A', 'B') y condicion_actual inicialmente es self.antecedentes_difusos['A']['bajo'], entonces condicion_actual se combina con self.antecedentes_difusos['B']['bajo'] usando &.
+        # # Se itera sobre cada combinación de características en la lista combinaciones_bajas. 
+        # # Cada combinacion es una tupla que contiene un subconjunto de características
+        # # Ejemplo: Supongamos que combinaciones_bajas tiene las combinaciones [('A', 'B'), ('C', 'D')]. El primer combinacion en el bucle podría ser ('A', 'B').
+        # for combinacion in combinaciones_bajas:
+        #     # Se establece condicion_actual con el valor de la condición 'bajo' del primer antecedente en la combinación actual.
+        #     # Ejemplo: Si la combinación es ('A', 'B'), entonces condicion_actual se inicializa con el valor de self.antecedentes_difusos['A']['bajo'].
+        #     condicion_actual = self.antecedentes_difusos[combinacion[0]]['bajo'] | self.antecedentes_difusos[combinacion[0]]['medio']
+        #     for antecedente in combinacion[1:]:
+        #         condicion_actual &= self.antecedentes_difusos[antecedente]['bajo'] | self.antecedentes_difusos[combinacion]['medio']
+        #     # Para cada antecedente adicional en la combinación, se actualiza condicion_actual combinando la condición 'bajo' del antecedente con condicion_actual usando la operación lógica AND (&)
+        #     # Ejemplo: Si la combinación es ('A', 'B') y condicion_actual inicialmente es self.antecedentes_difusos['A']['bajo'], entonces condicion_actual se combina con self.antecedentes_difusos['B']['bajo'] usando &.
             
-            if condicion_baja is None:
-                condicion_baja = condicion_actual
+        #     if condicion_baja is None:
+        #         condicion_baja = condicion_actual
+        #     else:
+        #         condicion_baja |= condicion_actual
+
+
+        # Evaluar condiciones de baja y media
+        condicion_baja_o_media = None
+        for combinacion in combinaciones_bajas:
+            condicion_actual = None
+            for antecedente in combinacion:
+                if condicion_actual is None:
+                    condicion_actual = (self.antecedentes_difusos[antecedente]['bajo'] |
+                                        self.antecedentes_difusos[antecedente]['medio'])
+                else:
+                    condicion_actual &= (self.antecedentes_difusos[antecedente]['bajo'] |
+                                         self.antecedentes_difusos[antecedente]['medio'])
+            if condicion_baja_o_media is None:
+                condicion_baja_o_media = condicion_actual
             else:
-                condicion_baja |= condicion_actual
+                condicion_baja_o_media |= condicion_actual
+        
 
         #regla1 establece que si la condición compuesta es 'baja', el consecuente debe ser 'bajo'.
         # ejemplo: si exite un conjunto de 5 caracteristicas o mas con nivel bajo la consecuencia sera de recomendacion baja "regla1", en caso contrario la consecuencia sera de recomendacion alta "regla2".
         regla1 = ctrl.Rule(
-            condicion_baja,
+            condicion_baja_o_media,
             self.consecuente_difuso['bajo']
         )
         
         #regla2 establece que si la condición compuesta no es 'baja' (lo que se denota por ~condicion_baja), el consecuente debe ser 'alta'.
         regla2 = ctrl.Rule(
-            ~condicion_baja,
+            ~condicion_baja_o_media,
             self.consecuente_difuso['alta']
         )
         
@@ -90,42 +116,27 @@ class System_expert_fuzzy():
         # Aquí puedes agregar la lógica para la simulación o evaluación
         fuzzy_simulator.compute()
 
-        resultado = fuzzy_simulator.output[self.actividad]
+        resultado = fuzzy_simulator.output[self.actividades]
 
         return resultado
     
     def imprimir_recomendacion(self, valor_caracteristica):
         grado_recomendacion = self.obtener_grado_recomendacion(valor_caracteristica)
 
-        print(f"Recomendación para la actividad de {self.actividad}: {round(grado_recomendacion,2)}")
-
-        # Interpretar el resultado en términos cualitativos
         if grado_recomendacion <= 1.5:
-            print("Recomendación: Baja")
+            recomendacion_cualitativa = "Baja"
         elif 1.5 < grado_recomendacion <= 2.5:
-            print("Recomendación: Media")
+            recomendacion_cualitativa = "Media"
         else:
-            print("Recomendación: Alta")
+            recomendacion_cualitativa = "Alta"
 
-antecedentes = [
-    "resistencia",
-    "velocidad",
-    "fuerza",
-    "coordinacion_superior",
-    "coordinacion_inferior",
-    "resiliencia",
-    "trabajo_individual"
-]
+        # Formateo de la recomendación
+        recomendacion = (f"{self.actividades}: " f"{round(grado_recomendacion, 2)}\n"
+                        f"Recomendación: {recomendacion_cualitativa}")
 
-inputs_natacion = {
-    "resistencia" : 5,
-    "velocidad" : 1,
-    "fuerza" : 5,
-    "coordinacion_superior" : 1,
-    "coordinacion_inferior" : 5,
-    "resiliencia" : 1,
-    "trabajo_individual" : 5
-}
 
-sistema = System_expert_fuzzy('futbol', antecedentes)
-sistema.imprimir_recomendacion(inputs_natacion)
+        return recomendacion
+
+
+#sistema = System_expert_fuzzy('futbol', antecedentes)
+#sistema.imprimir_recomendacion(inputs_natacion)
